@@ -1,14 +1,16 @@
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
     <NotFound>
-        <div class="container mt-5">
-            <div class="text-center">
+        <main role="main" class="container mt-5">
+            <div class="text-center" role="alert" aria-live="polite">
                 <h1 class="display-1">404</h1>
-                <p class="lead">Page Not Found</p>
+                <h2 class="lead">Page Not Found</h2>
+                <p class="mb-3">The page you're looking for doesn't exist.</p>
                 <a href="/" class="btn btn-primary">Go Home</a>
             </div>
-        </div>
+        </main>
     </NotFound>
 </Router>

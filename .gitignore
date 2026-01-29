@@ -6,6 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.rsuser
 
 # Build results
 [Dd]ebug/
@@ -31,13 +32,6 @@ bld/
 
 # JetBrains Rider
 .idea/
-
-# User-specific files
-*.rsuser
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
 
 # Build Results
 **/bin/

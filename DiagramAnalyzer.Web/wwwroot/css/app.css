@@ -54,6 +54,7 @@ body {
 .card {
     border: none;
     border-radius: 10px;
+    animation: fadeIn 0.3s ease-in;
 }
 
 .shadow-sm {
@@ -123,8 +124,4 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.card {
-    animation: fadeIn 0.3s ease-in;
 }
