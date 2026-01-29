@@ -1,0 +1,302 @@
+'@page "/"
+@rendermode InteractiveServer
+@using DiagramAnalyzer.Core.Models
+@using DiagramAnalyzer.Core.Services
+@inject IDiagramProcessorService DiagramProcessor
+@inject ILogger<Home> Logger
+
+<PageTitle>Diagram Analyzer</PageTitle>
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="text-center mb-4">
+                <h1 class="display-4">📊 AI-Powered Diagram Analysis</h1>
+                <p class="lead">Upload flowcharts and diagrams to extract structured data using Azure Computer Vision and GPT-4 Vision</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">📤 Upload Diagram</h5>
+                </div>
+                <div class="card-body">
+                    <div class="upload-zone @(isDragging ? "dragging" : "")" 
+                         @ondragover="HandleDragOver" 
+                         @ondragover:preventDefault="true"
+                         @ondragleave="HandleDragLeave"
+                         @ondrop="HandleDrop"
+                         @ondrop:preventDefault="true">
+                        
+                        <InputFile OnChange="HandleFileSelected" accept="image/*" class="file-input" id="fileInput" />
+                        
+                        <label for="fileInput" class="upload-label">
+                            @if (selectedImageData == null)
+                            {
+                                <div class="text-center p-5">
+                                    <div class="mb-3" style="font-size: 3rem;">☁️</div>
+                                    <p class="mb-2"><strong>Drag and drop</strong> your diagram here</p>
+                                    <p class="text-muted">or click to browse</p>
+                                    <p class="text-muted small">Supports: PNG, JPEG, GIF, BMP</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <img src="@selectedImageUrl" alt="Selected diagram" class="img-fluid rounded" />
+                            }
+                        </label>
+                    </div>
+
+                    @if (selectedImageData != null)
+                    {
+                        <div class="mt-3 d-grid gap-2">
+                            <button class="btn btn-success btn-lg" @onclick="AnalyzeDiagram" disabled="@isProcessing">
+                                @if (isProcessing)
+                                {
+                                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                    <span>Analyzing...</span>
+                                }
+                                else
+                                {
+                                    <span>🔍 Analyze Diagram</span>
+                                }
+                            </button>
+                            <button class="btn btn-outline-secondary" @onclick="ClearSelection" disabled="@isProcessing">
+                                Clear
+                            </button>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(errorMessage))
+                    {
+                        <div class="alert alert-danger mt-3" role="alert">
+                            <strong>Error:</strong> @errorMessage
+                        </div>
+                    }
+
+                    @if (isProcessing)
+                    {
+                        <div class="mt-3">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
+                            </div>
+                            <p class="text-muted text-center mt-2 small">@processingStatus</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">📋 Analysis Results</h5>
+                </div>
+                <div class="card-body" style="max-height: 600px; overflow-y: auto;">
+                    @if (analysisResult == null)
+                    {
+                        <div class="text-center text-muted py-5">
+                            <div style="font-size: 3rem; opacity: 0.3;">📊</div>
+                            <p>No analysis yet. Upload a diagram to get started!</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            <div class="mb-4">
+                                <h6 class="text-primary">📊 Summary</h6>
+                                <div class="mb-2">
+                                    <span class="badge bg-info me-2">Type:</span>
+                                    <span>@(string.IsNullOrEmpty(analysisResult.DiagramType) ? "Unknown" : analysisResult.DiagramType)</span>
+                                </div>
+                                <div class="mb-2">
+                                    <span class="badge bg-secondary me-2">Description:</span>
+                                    <span>@analysisResult.Description</span>
+                                </div>
+                                <div class="mb-2">
+                                    <span class="badge bg-primary me-2">Processing Time:</span>
+                                    <span>@analysisResult.Metadata.ProcessingTime.TotalSeconds.ToString("F2")s</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="text-primary">🔷 Nodes (@analysisResult.Nodes.Count)</h6>
+                                @if (analysisResult.Nodes.Any())
+                                {
+                                    <div class="row g-2">
+                                        @foreach (var node in analysisResult.Nodes)
+                                        {
+                                            <div class="col-md-6">
+                                                <div class="card border-primary">
+                                                    <div class="card-body p-2">
+                                                        <span class="badge bg-primary">@node.Type</span>
+                                                        <div class="mt-1"><strong>@node.Label</strong></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <p class="text-muted small">No nodes detected</p>
+                                }
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="text-primary">🔗 Connections (@analysisResult.Edges.Count)</h6>
+                                @if (analysisResult.Edges.Any())
+                                {
+                                    <div class="list-group">
+                                        @foreach (var edge in analysisResult.Edges)
+                                        {
+                                            <div class="list-group-item">
+                                                <small>
+                                                    <strong>@edge.SourceNodeId</strong> → <strong>@edge.TargetNodeId</strong>
+                                                    @if (!string.IsNullOrEmpty(edge.Label))
+                                                    {
+                                                        <span class="text-muted">(@edge.Label)</span>
+                                                    }
+                                                </small>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <p class="text-muted small">No connections detected</p>
+                                }
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="text-primary">📝 Extracted Text (@analysisResult.ExtractedText.Count)</h6>
+                                @if (analysisResult.ExtractedText.Any())
+                                {
+                                    <div>
+                                        @foreach (var text in analysisResult.ExtractedText)
+                                        {
+                                            <span class="badge bg-light text-dark me-1 mb-1">@text.Text</span>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <p class="text-muted small">No text extracted</p>
+                                }
+                            </div>
+
+                            <div>
+                                <button class="btn btn-sm btn-outline-primary" @onclick="ToggleJsonView">
+                                    @(showJson ? "Hide" : "Show") JSON Output
+                                </button>
+                                @if (showJson)
+                                {
+                                    <pre class="mt-2 p-3 bg-light rounded" style="font-size: 0.85rem; max-height: 300px; overflow-y: auto;"><code>@System.Text.Json.JsonSerializer.Serialize(analysisResult, new System.Text.Json.JsonSerializerOptions { WriteIndented = true })</code></pre>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private byte[]? selectedImageData;
+    private string? selectedImageUrl;
+    private bool isDragging;
+    private bool isProcessing;
+    private string? errorMessage;
+    private string processingStatus = "";
+    private DiagramResult? analysisResult;
+    private bool showJson;
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        errorMessage = null;
+        var file = e.File;
+
+        if (file.Size > 10 * 1024 * 1024)
+        {
+            errorMessage = "File size must be less than 10MB";
+            return;
+        }
+
+        try
+        {
+            using var ms = new MemoryStream();
+            await file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).CopyToAsync(ms);
+            selectedImageData = ms.ToArray();
+            selectedImageUrl = $"data:{file.ContentType};base64,{Convert.ToBase64String(selectedImageData)}";
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Failed to load image file");
+            errorMessage = "Failed to load image file";
+        }
+    }
+
+    private void HandleDragOver(DragEventArgs e)
+    {
+        isDragging = true;
+    }
+
+    private void HandleDragLeave(DragEventArgs e)
+    {
+        isDragging = false;
+    }
+
+    private async Task HandleDrop(DragEventArgs e)
+    {
+        isDragging = false;
+    }
+
+    private async Task AnalyzeDiagram()
+    {
+        if (selectedImageData == null) return;
+
+        isProcessing = true;
+        errorMessage = null;
+        analysisResult = null;
+        processingStatus = "Analyzing diagram...";
+
+        try
+        {
+            processingStatus = "Extracting text and detecting objects...";
+            StateHasChanged();
+            await Task.Delay(100);
+
+            analysisResult = await DiagramProcessor.ProcessDiagramAsync(selectedImageData);
+
+            processingStatus = "Analysis complete!";
+            Logger.LogInformation("Successfully analyzed diagram");
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Failed to analyze diagram");
+            errorMessage = $"Analysis failed: {ex.Message}";
+        }
+        finally
+        {
+            isProcessing = false;
+        }
+    }
+
+    private void ClearSelection()
+    {
+        selectedImageData = null;
+        selectedImageUrl = null;
+        analysisResult = null;
+        errorMessage = null;
+        showJson = false;
+    }
+
+    private void ToggleJsonView()
+    {
+        showJson = !showJson;
+    }
+}'},
