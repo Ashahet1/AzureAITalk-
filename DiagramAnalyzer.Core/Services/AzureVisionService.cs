@@ -1,3 +1,4 @@
+using System.Linq;
 using Azure;
 using Azure.AI.Vision.ImageAnalysis;
 using DiagramAnalyzer.Core.Configuration;
@@ -94,7 +95,7 @@ public class AzureVisionService : IAzureVisionService
                 BinaryData.FromBytes(imageData),
                 VisualFeatures.Objects);
 
-            var objects = result.Value.Objects?
+            var objects = result.Value.Objects?.Values?
                 .Select(obj => obj.Tags.FirstOrDefault()?.Name ?? "unknown")
                 .Where(name => !string.IsNullOrEmpty(name))
                 .Distinct()
