@@ -20,7 +20,6 @@ RUN dotnet publish "DiagramAnalyzer.Web.csproj" -c Release -o /app/publish /p:Us
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
 
 # Copy published app
 COPY --from=publish /app/publish .
