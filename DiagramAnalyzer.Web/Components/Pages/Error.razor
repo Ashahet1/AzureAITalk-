@@ -1,0 +1,66 @@
+@page "/error"
+@using System.Diagnostics
+
+<PageTitle>Error</PageTitle>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h1 class="h4 mb-0">⚠️ An Error Occurred</h1>
+                </div>
+                <div class="card-body">
+                    <p class="lead">
+                        We're sorry, but something went wrong while processing your request.
+                    </p>
+                    
+                    @if (ShowDetails)
+                    {
+                        <div class="alert alert-warning mt-3">
+                            <h5>Error Details (Development Only)</h5>
+                            <p><strong>Activity ID:</strong> @Activity.Current?.Id</p>
+                            <p class="mb-0"><small>This information is only shown in development mode.</small></p>
+                        </div>
+                    }
+                    
+                    <div class="mt-4">
+                        <h5>What you can do:</h5>
+                        <ul>
+                            <li>Return to the <a href="/">home page</a> and try again</li>
+                            <li>Refresh the page to reload the application</li>
+                            <li>Check your network connection</li>
+                            <li>If the problem persists, please contact support</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-4 d-grid gap-2 d-md-flex">
+                        <a href="/" class="btn btn-primary">
+                            Go to Home
+                        </a>
+                        <button class="btn btn-outline-secondary" @onclick="Reload">
+                            Reload Page
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? ErrorMessage { get; set; }
+    
+    private bool ShowDetails => 
+        Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
+    
+    private void Reload()
+    {
+        Navigation.NavigateTo(Navigation.Uri, forceLoad: true);
+    }
+    
+    [Inject]
+    private NavigationManager Navigation { get; set; } = default!;
+}
