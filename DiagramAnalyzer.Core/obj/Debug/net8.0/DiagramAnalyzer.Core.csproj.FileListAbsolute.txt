@@ -1,6 +1,0 @@
-/home/runner/work/AzureAITalk-/AzureAITalk-/DiagramAnalyzer.Core/obj/Debug/net8.0/DiagramAnalyzer.Core.csproj.AssemblyReference.cache
-/home/runner/work/AzureAITalk-/AzureAITalk-/DiagramAnalyzer.Core/obj/Debug/net8.0/DiagramAnalyzer.Core.GeneratedMSBuildEditorConfig.editorconfig
-/home/runner/work/AzureAITalk-/AzureAITalk-/DiagramAnalyzer.Core/obj/Debug/net8.0/DiagramAnalyzer.Core.AssemblyInfoInputs.cache
-/home/runner/work/AzureAITalk-/AzureAITalk-/DiagramAnalyzer.Core/obj/Debug/net8.0/DiagramAnalyzer.Core.AssemblyInfo.cs
-/home/runner/work/AzureAITalk-/AzureAITalk-/DiagramAnalyzer.Core/obj/Debug/net8.0/DiagramAnalyzer.Core.csproj.CoreCompileInputs.cache
-/home/runner/work/AzureAITalk-/AzureAITalk-/DiagramAnalyzer.Core/obj/Debug/net8.0/DiagramAnalyzer.Core.sourcelink.json

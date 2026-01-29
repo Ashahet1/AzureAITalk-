@@ -1,0 +1,28 @@
+@inherits LayoutComponentBase
+
+<div class="page">
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <span class="fs-4">📊 Diagram Analyzer</span>
+            </a>
+            <nav class="navbar-nav">
+                <div class="nav-item px-3">
+                    <span class="text-light">Powered by Azure AI</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content">
+        @Body
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">
+                &copy; 2024 Diagram Analyzer | Built with Blazor Server & Azure AI Services
+            </span>
+        </div>
+    </footer>
+</div>
