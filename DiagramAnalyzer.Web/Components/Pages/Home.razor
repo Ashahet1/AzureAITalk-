@@ -1,4 +1,4 @@
-'@page "/"
+@page "/"
 @rendermode InteractiveServer
 @using DiagramAnalyzer.Core.Models
 @using DiagramAnalyzer.Core.Services
@@ -299,4 +299,33 @@
     {
         showJson = !showJson;
     }
-}'},
+}
+
+<style>
+    .upload-zone {
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .upload-zone:hover {
+        border-color: #0d6efd;
+        background-color: #f8f9fa;
+    }
+
+    .upload-zone.dragging {
+        border-color: #0d6efd;
+        background-color: #e7f3ff;
+    }
+
+    .file-input {
+        display: none;
+    }
+
+    .upload-label {
+        display: block;
+        cursor: pointer;
+        margin: 0;
+    }
+</style>

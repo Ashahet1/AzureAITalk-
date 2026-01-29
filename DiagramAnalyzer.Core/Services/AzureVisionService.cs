@@ -94,11 +94,16 @@ public class AzureVisionService : IAzureVisionService
                 BinaryData.FromBytes(imageData),
                 VisualFeatures.Objects);
 
-            var objects = result.Value.Objects?
-                .Select(obj => obj.Tags.FirstOrDefault()?.Name ?? "unknown")
-                .Where(name => !string.IsNullOrEmpty(name))
-                .Distinct()
-                .ToList() ?? new List<string>();
+            var objects = new List<string>();
+            
+            if (result.Value.Objects?.Values != null)
+            {
+                objects = result.Value.Objects.Values
+                    .Select(obj => obj.Tags.FirstOrDefault()?.Name ?? "unknown")
+                    .Where(name => !string.IsNullOrEmpty(name))
+                    .Distinct()
+                    .ToList();
+            }
 
             _logger.LogInformation("Detected {Count} objects", objects.Count);
             return objects;
