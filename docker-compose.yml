@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  diagramanalyzer-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - AzureVision__Endpoint=${AZURE_VISION_ENDPOINT}
+      - AzureVision__ApiKey=${AZURE_VISION_KEY}
+      - AzureOpenAI__Endpoint=${AZURE_OPENAI_ENDPOINT}
+      - AzureOpenAI__ApiKey=${AZURE_OPENAI_KEY}
+      - AzureOpenAI__DeploymentName=${AZURE_OPENAI_DEPLOYMENT:-gpt-4-vision}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

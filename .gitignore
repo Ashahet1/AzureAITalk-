@@ -58,3 +58,7 @@ _ReSharper*/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Environment variables
+.env
+
