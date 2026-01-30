@@ -18,11 +18,13 @@ This guide is for maintainers and reviewers to ensure consistent, high-quality c
 - [ ] Check if the change is appropriate for the project
 - [ ] Verify the PR follows the template
 
-### 2. Automated Checks (Automated)
-- [ ] CI/CD pipeline passes
+### 2. Automated Checks (If Configured)
+- [ ] CI/CD pipeline passes (if configured)
 - [ ] Build succeeds
 - [ ] Tests pass
 - [ ] No merge conflicts
+
+*Note: If automated checks are not yet set up, manually verify build and tests locally.*
 
 ### 3. Code Review (10-30 minutes)
 Go through the code systematically:
@@ -50,14 +52,14 @@ Go through the code systematically:
 #### Security
 - [ ] No hardcoded credentials or secrets
 - [ ] Input validation is present
-- [ ] No SQL injection vulnerabilities
+- [ ] No injection vulnerabilities (SQL, XSS, etc. if applicable)
 - [ ] API calls are secure
 - [ ] Dependencies are safe
 
 #### Performance
 - [ ] No obvious performance issues
 - [ ] Efficient algorithms used
-- [ ] Database queries are optimized
+- [ ] API/data access patterns are optimized (if applicable)
 - [ ] Caching used where appropriate
 - [ ] No memory leaks
 
@@ -228,9 +230,9 @@ When:
 
 ## 📚 Resources
 
-- [C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
-- [.NET API Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)
-- [Blazor Best Practices](https://docs.microsoft.com/en-us/aspnet/core/blazor/best-practices)
+- [C# Coding Conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+- [.NET API Design Guidelines](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/)
+- [Blazor Best Practices](https://learn.microsoft.com/en-us/aspnet/core/blazor/)
 
 ## ✅ Review Checklist Template
 

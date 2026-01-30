@@ -1,4 +1,4 @@
-# Contributing to AzureAITalk
+# Contributing to DiagramAnalyzer (Azure AI Talk)
 
 Thank you for your interest in contributing to this project! This document explains the review process and how to contribute effectively.
 
@@ -55,11 +55,13 @@ All contributions go through a review process to ensure code quality, maintain c
 
 #### 5. **The Review Process**
 
-   **Phase 1: Automated Checks**
-   - CI/CD pipelines run automatically
+   **Phase 1: Automated Checks (If Configured)**
+   - CI/CD pipelines (when configured) run automatically
    - Build verification
    - Test execution
    - Code quality checks
+   
+   *Note: If automated checks are not yet set up, reviewers will manually verify these aspects.*
 
    **Phase 2: Maintainer Review**
    - A maintainer will review your code
@@ -213,4 +215,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-Thank you for contributing to AzureAITalk! 🎉
+Thank you for contributing to DiagramAnalyzer! 🎉
