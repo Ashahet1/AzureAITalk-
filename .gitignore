@@ -399,13 +399,14 @@ FodyWeavers.xsd
 .idea/
 
 # Sensitive configuration files - DO NOT COMMIT
+# Only ignore Development and Local configs which may contain real secrets
 appsettings.Development.json
-appsettings.*.json
-!appsettings.json
+appsettings.Local.json
 *.secrets.json
 secrets.json
 .env
-.env.*
+.env.local
+.env.development
 
 # User secrets
 **/secrets/
