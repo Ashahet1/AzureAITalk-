@@ -1,9 +1,11 @@
-'@page "/"
-@rendermode InteractiveServer
+@page "/"
 @using DiagramAnalyzer.Core.Models
 @using DiagramAnalyzer.Core.Services
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Web
 @inject IDiagramProcessorService DiagramProcessor
 @inject ILogger<Home> Logger
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 <PageTitle>Diagram Analyzer</PageTitle>
 
