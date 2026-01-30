@@ -80,6 +80,29 @@ Edit `DiagramAnalyzer.Web/appsettings.json` and add your Azure credentials:
 
 ---
 
+## 🤝 Contributing
+
+We welcome contributions! Please see our contributing guidelines:
+
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute and the review process
+- **[CODE_REVIEW_GUIDE.md](CODE_REVIEW_GUIDE.md)** - Guide for code reviewers
+- **[Issue Templates](.github/ISSUE_TEMPLATE/)** - Report bugs or request features
+- **[Pull Request Template](.github/pull_request_template.md)** - Submit your changes
+
+### Quick Contribution Steps
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes and commit (`git commit -m 'Add amazing feature'`)
+4. Push to your branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+6. Wait for review and address feedback
+7. Get merged! 🎉
+
+For detailed steps on how the review process works, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
 ## 👥 Author
 
 **Ashahet1** - [@Ashahet1](https://github.com/Ashahet1)
