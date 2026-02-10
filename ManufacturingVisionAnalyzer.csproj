@@ -21,7 +21,7 @@
     <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
     <PackageTags>azure;ai;vision;manufacturing;quality-control;knowledge-graph;defect-detection;analytics;computer-vision;industrial-ai;mvtec;dotnet;csharp</PackageTags>
     <PackageReleaseNotes>Complete cross-modal knowledge graph system with Azure AI Vision integration, interactive analytics, and pattern discovery across product types.</PackageReleaseNotes>
-    <PackageIcon>icon.png</PackageIcon>
+    <!-- Uncomment when icon.png is available: <PackageIcon>icon.png</PackageIcon> -->
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
