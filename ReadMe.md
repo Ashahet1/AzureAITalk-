@@ -1,5 +1,27 @@
 # Manufacturing Knowledge Graph — Cross-Modal Intelligence for Quality Control
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
+[![Azure AI Vision](https://img.shields.io/badge/Azure-AI%20Vision-0089D6)](https://azure.microsoft.com/en-us/products/ai-services/ai-vision/)
+[![GitHub Issues](https://img.shields.io/github/issues/Ashahet1/AzureAITalk-)](https://github.com/Ashahet1/AzureAITalk-/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Ashahet1/AzureAITalk-)](https://github.com/Ashahet1/AzureAITalk-/pulls)
+[![GitHub Stars](https://img.shields.io/github/stars/Ashahet1/AzureAITalk-?style=social)](https://github.com/Ashahet1/AzureAITalk-/stargazers)
+
+> An AI-powered manufacturing quality control system that builds cross-modal knowledge graphs from visual defect data, enabling intelligent pattern discovery across product types.
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Quick Start](#quick-start)
+- [Installation](#installation)
+- [Dataset](#dataset)
+- [Interactive Menu](#interactive-menu)
+- [Analytics & Visualizations](#analytics--visualizations)
+- [API Usage](#api-usage--queries)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Project Overview
 
 A **complete .NET 10 console application** that builds a cross-modal knowledge graph for manufacturing quality control. The system connects visual defect data from Azure AI Vision with process knowledge, inspection equipment, and ISO 9001 standards — then exposes an **interactive 13-option menu** with analytics, console-based visualizations, and exportable dashboards.
@@ -96,6 +118,37 @@ mvtec_anomaly_detection/
 
 ## Quick Start
 
+### Installation Options
+
+#### Option 1: Clone from GitHub (Recommended for Development)
+
+```bash
+git clone https://github.com/Ashahet1/AzureAITalk-.git
+cd AzureAITalk-
+dotnet restore
+dotnet build
+```
+
+#### Option 2: NuGet Package (Coming Soon)
+
+```bash
+# Install via NuGet (when published)
+dotnet add package ManufacturingVisionAnalyzer
+```
+
+#### Option 3: GitHub Packages
+
+```bash
+# Add GitHub Packages source
+dotnet nuget add source https://nuget.pkg.github.com/Ashahet1/index.json \
+  -n github \
+  -u YOUR_GITHUB_USERNAME \
+  -p YOUR_GITHUB_TOKEN
+
+# Install the package
+dotnet add package ManufacturingVisionAnalyzer --version 2.0.0
+```
+
 ### Prerequisites
 
 - **.NET 10.0 SDK** (or later)
@@ -119,20 +172,7 @@ az cognitiveservices account create \
   --location eastus
 ```
 
-### 2. Clone & Restore
-
-```bash
-cd ManufacturingVisionAnalyzer
-dotnet restore
-```
-
-The only external NuGet dependency is:
-
-```
-Azure.AI.Vision.ImageAnalysis  1.0.0-beta.3
-```
-
-### 3. Configure Credentials
+### 2. Configure Credentials
 
 **Option A — Environment Variables (recommended)**
 
@@ -155,7 +195,7 @@ string azureEndpoint = "https://your-resource.cognitiveservices.azure.com/";
 string azureKey = "your-key-here";
 ```
 
-### 4. Run
+### 3. Run
 
 ```bash
 # Pass the dataset path as an argument
@@ -352,15 +392,45 @@ if (caption.Contains("misalignment"))
 
 ---
 
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on how to:
+- Report bugs
+- Suggest features
+- Submit pull requests
+- Follow coding standards
+
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+
+## Security
+
+For security concerns, please see our [Security Policy](SECURITY.md).
+
 ## License
 
-Educational / demo project.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-- **Azure AI Vision**: Requires Azure subscription (Free tier available)
-- **MVTec AD Dataset**: Free for research and educational use (see MVTec license)
+### Third-Party Components
+
+- **Azure AI Vision**: Requires Azure subscription (Free F0 tier available)
+- **MVTec AD Dataset**: Free for research and educational use (see [MVTec license](https://www.mvtec.com/company/research/datasets/mvtec-ad))
+
+## Support
+
+- 📖 [Documentation](https://github.com/Ashahet1/AzureAITalk-/blob/main/ReadMe.md)
+- 🐛 [Issue Tracker](https://github.com/Ashahet1/AzureAITalk-/issues)
+- 💬 [Discussions](https://github.com/Ashahet1/AzureAITalk-/discussions)
+- ⭐ [Star this repo](https://github.com/Ashahet1/AzureAITalk-/stargazers) if you find it useful!
+
+## Acknowledgments
+
+- Azure AI Services team for the Vision API
+- MVTec for the Anomaly Detection dataset
+- .NET community for excellent tooling and libraries
 
 ---
 
-**Last Updated**: 2026-02-10
-**Version**: 2.0 — Complete project with analytics dashboard and extended features
-**Status**: Complete
+**Last Updated**: 2026-02-10  
+**Version**: 2.0 — Complete project with analytics dashboard and extended features  
+**Status**: Active Development  
+**Repository**: [github.com/Ashahet1/AzureAITalk-](https://github.com/Ashahet1/AzureAITalk-)

@@ -5,10 +5,35 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    
+    <!-- NuGet Package Metadata -->
+    <PackageId>ManufacturingVisionAnalyzer</PackageId>
+    <Version>2.0.0</Version>
+    <Authors>Ashahet1</Authors>
+    <Company>Ashahet1</Company>
+    <Product>Manufacturing Vision Analyzer</Product>
+    <Description>Manufacturing Knowledge Graph - Cross-Modal Intelligence for Quality Control using Azure AI Vision. Build intelligent knowledge graphs from industrial defect data, discover patterns across product types, and generate actionable insights with interactive analytics dashboards.</Description>
+    <Copyright>Copyright (c) 2026 Ashahet1</Copyright>
+    <PackageProjectUrl>https://github.com/Ashahet1/AzureAITalk-</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Ashahet1/AzureAITalk-</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+    <PackageTags>azure;ai;vision;manufacturing;quality-control;knowledge-graph;defect-detection;analytics;computer-vision;industrial-ai;mvtec;dotnet;csharp</PackageTags>
+    <PackageReleaseNotes>Complete cross-modal knowledge graph system with Azure AI Vision integration, interactive analytics, and pattern discovery across product types.</PackageReleaseNotes>
+    <PackageIcon>icon.png</PackageIcon>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Azure.AI.Vision.ImageAnalysis" Version="1.0.0-beta.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ReadMe.md" Pack="true" PackagePath="\" />
+    <!-- Uncomment when icon.png is available -->
+    <!-- <None Include="icon.png" Pack="true" PackagePath="\" /> -->
   </ItemGroup>
 
 </Project>

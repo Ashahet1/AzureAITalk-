@@ -1,0 +1,111 @@
+name: Release and Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number (e.g., 1.0.0)'
+        required: true
+        type: string
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+      
+    - name: Get version from tag
+      id: get_version
+      run: |
+        if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+        else
+          echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Pack NuGet package
+      run: |
+        dotnet pack --configuration Release \
+          --no-build \
+          --output ./nupkg \
+          -p:PackageVersion=${{ steps.get_version.outputs.VERSION }} \
+          -p:Authors="Ashahet1" \
+          -p:Description="Manufacturing Knowledge Graph - Cross-Modal Intelligence for Quality Control using Azure AI Vision" \
+          -p:PackageProjectUrl="https://github.com/Ashahet1/AzureAITalk-" \
+          -p:RepositoryUrl="https://github.com/Ashahet1/AzureAITalk-" \
+          -p:PackageLicenseExpression="MIT" \
+          -p:PackageTags="azure;ai;vision;manufacturing;quality-control;knowledge-graph"
+          
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref_name }}
+        release_name: Release ${{ steps.get_version.outputs.VERSION }}
+        body: |
+          ## Manufacturing Vision Analyzer v${{ steps.get_version.outputs.VERSION }}
+          
+          ### What's New
+          - Cross-modal knowledge graph for manufacturing quality control
+          - Azure AI Vision integration for defect detection
+          - Interactive analytics dashboard with visualizations
+          - NuGet package available for easy integration
+          
+          ### Installation
+          ```bash
+          dotnet add package ManufacturingVisionAnalyzer --version ${{ steps.get_version.outputs.VERSION }}
+          ```
+          
+          ### Requirements
+          - .NET 10.0 or later
+          - Azure AI Vision resource
+          - MVTec Anomaly Detection dataset (for full functionality)
+          
+          See the [README](https://github.com/Ashahet1/AzureAITalk-/blob/main/ReadMe.md) for detailed documentation.
+        draft: false
+        prerelease: false
+        
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./nupkg/ManufacturingVisionAnalyzer.${{ steps.get_version.outputs.VERSION }}.nupkg
+        asset_name: ManufacturingVisionAnalyzer.${{ steps.get_version.outputs.VERSION }}.nupkg
+        asset_content_type: application/zip
+        
+    - name: Publish to NuGet
+      if: ${{ !github.event.release.prerelease }}
+      run: |
+        dotnet nuget push ./nupkg/*.nupkg \
+          --api-key ${{ secrets.NUGET_API_KEY }} \
+          --source https://api.nuget.org/v3/index.json \
+          --skip-duplicate
+      continue-on-error: true
+      
+    - name: Publish to GitHub Packages
+      run: |
+        dotnet nuget push ./nupkg/*.nupkg \
+          --api-key ${{ secrets.GITHUB_TOKEN }} \
+          --source "https://nuget.pkg.github.com/Ashahet1/index.json" \
+          --skip-duplicate
+      continue-on-error: true
