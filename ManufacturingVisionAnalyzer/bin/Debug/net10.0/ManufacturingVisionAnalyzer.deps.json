@@ -1,0 +1,113 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "ManufacturingVisionAnalyzer/1.0.0": {
+        "dependencies": {
+          "Azure.AI.Vision.ImageAnalysis": "1.0.0-beta.3"
+        },
+        "runtime": {
+          "ManufacturingVisionAnalyzer.dll": {}
+        }
+      },
+      "Azure.AI.Vision.ImageAnalysis/1.0.0-beta.3": {
+        "dependencies": {
+          "Azure.Core": "1.40.0",
+          "System.ClientModel": "1.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.AI.Vision.ImageAnalysis.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.24.31402"
+          }
+        }
+      },
+      "Azure.Core/1.40.0": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
+          "System.ClientModel": "1.0.0",
+          "System.Memory.Data": "1.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/Azure.Core.dll": {
+            "assemblyVersion": "1.40.0.0",
+            "fileVersion": "1.4000.24.30605"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "4.700.20.21406"
+          }
+        }
+      },
+      "System.ClientModel/1.0.0": {
+        "dependencies": {
+          "System.Memory.Data": "1.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/System.ClientModel.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.24.5302"
+          }
+        }
+      },
+      "System.Memory.Data/1.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.Data.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.221.20802"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ManufacturingVisionAnalyzer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Azure.AI.Vision.ImageAnalysis/1.0.0-beta.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XO89ImSMa9Y+UoPSxepYJdbOEU/wP/jwQ0ELDXMH/qqgXbZ1NswUADxxqQidX0FB6EgZNp1tr74xI+jRlsMCWw==",
+      "path": "azure.ai.vision.imageanalysis/1.0.0-beta.3",
+      "hashPath": "azure.ai.vision.imageanalysis.1.0.0-beta.3.nupkg.sha512"
+    },
+    "Azure.Core/1.40.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eOx6wk3kQ3SCnoAj7IytAu/d99l07PdarmUc+RmMkVOTkcQ3s+UQEaGzMyEqC2Ua4SKnOW4Xw/klLeB5V2PiSA==",
+      "path": "azure.core/1.40.0",
+      "hashPath": "azure.core.1.40.0.nupkg.sha512"
+    },
+    "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
+      "path": "microsoft.bcl.asyncinterfaces/1.1.1",
+      "hashPath": "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512"
+    },
+    "System.ClientModel/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I3CVkvxeqFYjIVEP59DnjbeoGNfo/+SZrCLpRz2v/g0gpCHaEMPtWSY0s9k/7jR1rAsLNg2z2u1JRB76tPjnIw==",
+      "path": "system.clientmodel/1.0.0",
+      "hashPath": "system.clientmodel.1.0.0.nupkg.sha512"
+    },
+    "System.Memory.Data/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JGkzeqgBsiZwKJZ1IxPNsDFZDhUvuEdX8L8BDC8N3KOj+6zMcNU28CNN59TpZE/VJYy9cP+5M+sbxtWJx3/xtw==",
+      "path": "system.memory.data/1.0.2",
+      "hashPath": "system.memory.data.1.0.2.nupkg.sha512"
+    }
+  }
+}
