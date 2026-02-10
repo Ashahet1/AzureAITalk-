@@ -11,9 +11,16 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     
     steps:
     - name: Checkout code
