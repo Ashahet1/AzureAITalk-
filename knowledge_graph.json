@@ -1,0 +1,2913 @@
+{
+  "nodes": [
+    {
+      "id": "img_bottle_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\bottle\\test\\broken_large\\000.png",
+        "product": "bottle",
+        "defect_category": "broken_large",
+        "caption": "a close up of a bottle"
+      }
+    },
+    {
+      "id": "defect_bottle_broken_large_ce6420be",
+      "type": "defect",
+      "properties": {
+        "name": "broken_large",
+        "product": "bottle",
+        "severity": "high"
+      }
+    },
+    {
+      "id": "img_bottle_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\bottle\\test\\broken_large\\001.png",
+        "product": "bottle",
+        "defect_category": "broken_large",
+        "caption": "a close up of a bottle"
+      }
+    },
+    {
+      "id": "defect_bottle_broken_large_16f5be4f",
+      "type": "defect",
+      "properties": {
+        "name": "broken_large",
+        "product": "bottle",
+        "severity": "high"
+      }
+    },
+    {
+      "id": "defect_bottle_broken_small_605fc43e",
+      "type": "defect",
+      "properties": {
+        "name": "broken_small",
+        "product": "bottle",
+        "severity": "low"
+      }
+    },
+    {
+      "id": "defect_bottle_broken_small_2341e0d5",
+      "type": "defect",
+      "properties": {
+        "name": "broken_small",
+        "product": "bottle",
+        "severity": "low"
+      }
+    },
+    {
+      "id": "defect_bottle_contamination_c65cb535",
+      "type": "defect",
+      "properties": {
+        "name": "contamination",
+        "product": "bottle",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_bottle_contamination_11b43e72",
+      "type": "defect",
+      "properties": {
+        "name": "contamination",
+        "product": "bottle",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_cable_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\cable\\test\\bent_wire\\000.png",
+        "product": "cable",
+        "defect_category": "bent_wire",
+        "caption": "a group of copper wires in a bowl"
+      }
+    },
+    {
+      "id": "defect_cable_bent_wire_6d85b97f",
+      "type": "defect",
+      "properties": {
+        "name": "bent_wire",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_cable_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\cable\\test\\bent_wire\\001.png",
+        "product": "cable",
+        "defect_category": "bent_wire",
+        "caption": "a close up of wires"
+      }
+    },
+    {
+      "id": "defect_cable_bent_wire_e97f7159",
+      "type": "defect",
+      "properties": {
+        "name": "bent_wire",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_cable_swap_57ec45d8",
+      "type": "defect",
+      "properties": {
+        "name": "cable_swap",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_cable_swap_0ec1f5f7",
+      "type": "defect",
+      "properties": {
+        "name": "cable_swap",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_combined_0dd4cc21",
+      "type": "defect",
+      "properties": {
+        "name": "combined",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_combined_b4b80696",
+      "type": "defect",
+      "properties": {
+        "name": "combined",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_cut_inner_insulation_e6323697",
+      "type": "defect",
+      "properties": {
+        "name": "cut_inner_insulation",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_cut_inner_insulation_0e4e4a7a",
+      "type": "defect",
+      "properties": {
+        "name": "cut_inner_insulation",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_cut_outer_insulation_46fe99b9",
+      "type": "defect",
+      "properties": {
+        "name": "cut_outer_insulation",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_cut_outer_insulation_0d2df879",
+      "type": "defect",
+      "properties": {
+        "name": "cut_outer_insulation",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_missing_cable_ee300950",
+      "type": "defect",
+      "properties": {
+        "name": "missing_cable",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_missing_cable_ec18373a",
+      "type": "defect",
+      "properties": {
+        "name": "missing_cable",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_missing_wire_593e6204",
+      "type": "defect",
+      "properties": {
+        "name": "missing_wire",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_missing_wire_b703c62f",
+      "type": "defect",
+      "properties": {
+        "name": "missing_wire",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_poke_insulation_89df0ff4",
+      "type": "defect",
+      "properties": {
+        "name": "poke_insulation",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_cable_poke_insulation_7ad2d656",
+      "type": "defect",
+      "properties": {
+        "name": "poke_insulation",
+        "product": "cable",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_capsule_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\capsule\\test\\crack\\000.png",
+        "product": "capsule",
+        "defect_category": "crack",
+        "caption": "a close up of a pill"
+      }
+    },
+    {
+      "id": "defect_capsule_crack_068aa061",
+      "type": "defect",
+      "properties": {
+        "name": "crack",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_capsule_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\capsule\\test\\crack\\001.png",
+        "product": "capsule",
+        "defect_category": "crack",
+        "caption": "a close up of a pill"
+      }
+    },
+    {
+      "id": "defect_capsule_crack_13b3c2ab",
+      "type": "defect",
+      "properties": {
+        "name": "crack",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_capsule_faulty_imprint_44130458",
+      "type": "defect",
+      "properties": {
+        "name": "faulty_imprint",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_capsule_faulty_imprint_e6e5bd0b",
+      "type": "defect",
+      "properties": {
+        "name": "faulty_imprint",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_capsule_poke_09450301",
+      "type": "defect",
+      "properties": {
+        "name": "poke",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_capsule_poke_5d9295a5",
+      "type": "defect",
+      "properties": {
+        "name": "poke",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_capsule_scratch_87b0a0c7",
+      "type": "defect",
+      "properties": {
+        "name": "scratch",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_capsule_scratch_eb1104d1",
+      "type": "defect",
+      "properties": {
+        "name": "scratch",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_capsule_squeeze_b0f4a9d6",
+      "type": "defect",
+      "properties": {
+        "name": "squeeze",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_capsule_squeeze_31b19245",
+      "type": "defect",
+      "properties": {
+        "name": "squeeze",
+        "product": "capsule",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_carpet_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\carpet\\test\\color\\000.png",
+        "product": "carpet",
+        "defect_category": "color",
+        "caption": "a black circle on a woven fabric"
+      }
+    },
+    {
+      "id": "defect_carpet_color_f611007f",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_carpet_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\carpet\\test\\color\\001.png",
+        "product": "carpet",
+        "defect_category": "color",
+        "caption": "a close up of a fabric"
+      }
+    },
+    {
+      "id": "defect_carpet_color_4838c198",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_carpet_cut_38cc25d2",
+      "type": "defect",
+      "properties": {
+        "name": "cut",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_carpet_cut_a3102561",
+      "type": "defect",
+      "properties": {
+        "name": "cut",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_carpet_hole_6d9ae71b",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_carpet_hole_8bc1638b",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_carpet_metal_contamination_c84f8643",
+      "type": "defect",
+      "properties": {
+        "name": "metal_contamination",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_carpet_metal_contamination_e644d444",
+      "type": "defect",
+      "properties": {
+        "name": "metal_contamination",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_carpet_thread_15797f77",
+      "type": "defect",
+      "properties": {
+        "name": "thread",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_carpet_thread_00e548bd",
+      "type": "defect",
+      "properties": {
+        "name": "thread",
+        "product": "carpet",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_grid_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\grid\\test\\bent\\000.png",
+        "product": "grid",
+        "defect_category": "bent",
+        "caption": "a close up of a metal mesh"
+      }
+    },
+    {
+      "id": "defect_grid_bent_a88a856f",
+      "type": "defect",
+      "properties": {
+        "name": "bent",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_grid_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\grid\\test\\bent\\001.png",
+        "product": "grid",
+        "defect_category": "bent",
+        "caption": "a close-up of a metal mesh"
+      }
+    },
+    {
+      "id": "defect_grid_bent_86f9d225",
+      "type": "defect",
+      "properties": {
+        "name": "bent",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_grid_broken_739d2904",
+      "type": "defect",
+      "properties": {
+        "name": "broken",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_grid_broken_446937e9",
+      "type": "defect",
+      "properties": {
+        "name": "broken",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_grid_glue_808b9d17",
+      "type": "defect",
+      "properties": {
+        "name": "glue",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_grid_glue_d67dd75b",
+      "type": "defect",
+      "properties": {
+        "name": "glue",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_grid_metal_contamination_c2d169f6",
+      "type": "defect",
+      "properties": {
+        "name": "metal_contamination",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_grid_metal_contamination_06686893",
+      "type": "defect",
+      "properties": {
+        "name": "metal_contamination",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_grid_thread_7b440bbb",
+      "type": "defect",
+      "properties": {
+        "name": "thread",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_grid_thread_2db3fe86",
+      "type": "defect",
+      "properties": {
+        "name": "thread",
+        "product": "grid",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_hazelnut_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\hazelnut\\test\\crack\\000.png",
+        "product": "hazelnut",
+        "defect_category": "crack",
+        "caption": "a cracked hazelnut on a black surface"
+      }
+    },
+    {
+      "id": "defect_hazelnut_crack_f2fef344",
+      "type": "defect",
+      "properties": {
+        "name": "crack",
+        "product": "hazelnut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_hazelnut_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\hazelnut\\test\\crack\\001.png",
+        "product": "hazelnut",
+        "defect_category": "crack",
+        "caption": "a cracked hazelnut with a hole in it"
+      }
+    },
+    {
+      "id": "defect_hazelnut_crack_93e288b4",
+      "type": "defect",
+      "properties": {
+        "name": "crack",
+        "product": "hazelnut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_hazelnut_cut_88c09c15",
+      "type": "defect",
+      "properties": {
+        "name": "cut",
+        "product": "hazelnut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_hazelnut_cut_cd7c7b7c",
+      "type": "defect",
+      "properties": {
+        "name": "cut",
+        "product": "hazelnut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_hazelnut_hole_1cfaa097",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "hazelnut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_hazelnut_hole_7abc91aa",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "hazelnut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_hazelnut_print_bf5537eb",
+      "type": "defect",
+      "properties": {
+        "name": "print",
+        "product": "hazelnut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_hazelnut_print_2cd76a24",
+      "type": "defect",
+      "properties": {
+        "name": "print",
+        "product": "hazelnut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_leather_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\leather\\test\\color\\000.png",
+        "product": "leather",
+        "defect_category": "color",
+        "caption": "a close up of a leather surface"
+      }
+    },
+    {
+      "id": "defect_leather_color_0f4b7504",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_leather_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\leather\\test\\color\\001.png",
+        "product": "leather",
+        "defect_category": "color",
+        "caption": "a close up of a leather surface"
+      }
+    },
+    {
+      "id": "defect_leather_color_4518ec2e",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_leather_cut_c5aaf3a1",
+      "type": "defect",
+      "properties": {
+        "name": "cut",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_leather_cut_976c437a",
+      "type": "defect",
+      "properties": {
+        "name": "cut",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_leather_fold_d9ae412f",
+      "type": "defect",
+      "properties": {
+        "name": "fold",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_leather_fold_9eaf4305",
+      "type": "defect",
+      "properties": {
+        "name": "fold",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_leather_glue_0fc7a628",
+      "type": "defect",
+      "properties": {
+        "name": "glue",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_leather_glue_d918e63f",
+      "type": "defect",
+      "properties": {
+        "name": "glue",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_leather_poke_6858f5b9",
+      "type": "defect",
+      "properties": {
+        "name": "poke",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_leather_poke_2adce2f2",
+      "type": "defect",
+      "properties": {
+        "name": "poke",
+        "product": "leather",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_metal_nut_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\metal_nut\\test\\bent\\000.png",
+        "product": "metal_nut",
+        "defect_category": "bent",
+        "caption": "a close up of a circular object"
+      }
+    },
+    {
+      "id": "defect_metal_nut_bent_b155c88c",
+      "type": "defect",
+      "properties": {
+        "name": "bent",
+        "product": "metal_nut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_metal_nut_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\metal_nut\\test\\bent\\001.png",
+        "product": "metal_nut",
+        "defect_category": "bent",
+        "caption": "a close up of a metal object"
+      }
+    },
+    {
+      "id": "defect_metal_nut_bent_c900d562",
+      "type": "defect",
+      "properties": {
+        "name": "bent",
+        "product": "metal_nut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_metal_nut_color_61a0b96e",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "metal_nut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_metal_nut_color_c9dce91c",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "metal_nut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_metal_nut_flip_929cac90",
+      "type": "defect",
+      "properties": {
+        "name": "flip",
+        "product": "metal_nut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_metal_nut_flip_a192a2e4",
+      "type": "defect",
+      "properties": {
+        "name": "flip",
+        "product": "metal_nut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_metal_nut_scratch_8ae8673f",
+      "type": "defect",
+      "properties": {
+        "name": "scratch",
+        "product": "metal_nut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_metal_nut_scratch_d7654be1",
+      "type": "defect",
+      "properties": {
+        "name": "scratch",
+        "product": "metal_nut",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_pill_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\pill\\test\\color\\000.png",
+        "product": "pill",
+        "defect_category": "color",
+        "caption": "a white oval object with a letter f engraved on it"
+      }
+    },
+    {
+      "id": "defect_pill_color_1901e635",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_pill_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\pill\\test\\color\\001.png",
+        "product": "pill",
+        "defect_category": "color",
+        "caption": "a white oval object with a letter f"
+      }
+    },
+    {
+      "id": "defect_pill_color_99c5d54a",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_combined_f352a855",
+      "type": "defect",
+      "properties": {
+        "name": "combined",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_combined_53ff280a",
+      "type": "defect",
+      "properties": {
+        "name": "combined",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_contamination_98bdba83",
+      "type": "defect",
+      "properties": {
+        "name": "contamination",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_contamination_e5b32c78",
+      "type": "defect",
+      "properties": {
+        "name": "contamination",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_crack_71ea9566",
+      "type": "defect",
+      "properties": {
+        "name": "crack",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_crack_70c134fa",
+      "type": "defect",
+      "properties": {
+        "name": "crack",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_faulty_imprint_dfc0c597",
+      "type": "defect",
+      "properties": {
+        "name": "faulty_imprint",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_faulty_imprint_b34d67a3",
+      "type": "defect",
+      "properties": {
+        "name": "faulty_imprint",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_pill_type_a268cd5d",
+      "type": "defect",
+      "properties": {
+        "name": "pill_type",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_pill_type_dd0b9634",
+      "type": "defect",
+      "properties": {
+        "name": "pill_type",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_scratch_e638c3c1",
+      "type": "defect",
+      "properties": {
+        "name": "scratch",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_pill_scratch_9768c3f3",
+      "type": "defect",
+      "properties": {
+        "name": "scratch",
+        "product": "pill",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_screw_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\screw\\test\\manipulated_front\\000.png",
+        "product": "screw",
+        "defect_category": "manipulated_front",
+        "caption": "a close-up of a screw"
+      }
+    },
+    {
+      "id": "defect_screw_manipulated_front_a343390e",
+      "type": "defect",
+      "properties": {
+        "name": "manipulated_front",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_screw_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\screw\\test\\manipulated_front\\001.png",
+        "product": "screw",
+        "defect_category": "manipulated_front",
+        "caption": "a close up of a screw"
+      }
+    },
+    {
+      "id": "defect_screw_manipulated_front_cc4f176b",
+      "type": "defect",
+      "properties": {
+        "name": "manipulated_front",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_screw_scratch_head_38865fe4",
+      "type": "defect",
+      "properties": {
+        "name": "scratch_head",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_screw_scratch_head_b17e002c",
+      "type": "defect",
+      "properties": {
+        "name": "scratch_head",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_screw_scratch_neck_1c91d39c",
+      "type": "defect",
+      "properties": {
+        "name": "scratch_neck",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_screw_scratch_neck_550660f7",
+      "type": "defect",
+      "properties": {
+        "name": "scratch_neck",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_screw_thread_side_a6248f04",
+      "type": "defect",
+      "properties": {
+        "name": "thread_side",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_screw_thread_side_5796f5a2",
+      "type": "defect",
+      "properties": {
+        "name": "thread_side",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_screw_thread_top_98fe043a",
+      "type": "defect",
+      "properties": {
+        "name": "thread_top",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_screw_thread_top_a12a6ce3",
+      "type": "defect",
+      "properties": {
+        "name": "thread_top",
+        "product": "screw",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_tile_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\tile\\test\\crack\\000.png",
+        "product": "tile",
+        "defect_category": "crack",
+        "caption": "a crack in a stone"
+      }
+    },
+    {
+      "id": "defect_tile_crack_707589dd",
+      "type": "defect",
+      "properties": {
+        "name": "crack",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_tile_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\tile\\test\\crack\\001.png",
+        "product": "tile",
+        "defect_category": "crack",
+        "caption": "a close up of a crack in a stone"
+      }
+    },
+    {
+      "id": "defect_tile_crack_e3e7ee0e",
+      "type": "defect",
+      "properties": {
+        "name": "crack",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_tile_glue_strip_d4bc0b4b",
+      "type": "defect",
+      "properties": {
+        "name": "glue_strip",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_tile_glue_strip_17ab4bbf",
+      "type": "defect",
+      "properties": {
+        "name": "glue_strip",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_tile_gray_stroke_b09bf532",
+      "type": "defect",
+      "properties": {
+        "name": "gray_stroke",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_tile_gray_stroke_4043ea66",
+      "type": "defect",
+      "properties": {
+        "name": "gray_stroke",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_tile_oil_192bff2c",
+      "type": "defect",
+      "properties": {
+        "name": "oil",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_tile_oil_155523f0",
+      "type": "defect",
+      "properties": {
+        "name": "oil",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_tile_rough_5b53587b",
+      "type": "defect",
+      "properties": {
+        "name": "rough",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_tile_rough_796e9f5a",
+      "type": "defect",
+      "properties": {
+        "name": "rough",
+        "product": "tile",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_toothbrush_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\toothbrush\\test\\defective\\000.png",
+        "product": "toothbrush",
+        "defect_category": "defective",
+        "caption": "a white and blue toothbrush"
+      }
+    },
+    {
+      "id": "defect_toothbrush_defective_15f9dbca",
+      "type": "defect",
+      "properties": {
+        "name": "defective",
+        "product": "toothbrush",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_toothbrush_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\toothbrush\\test\\defective\\001.png",
+        "product": "toothbrush",
+        "defect_category": "defective",
+        "caption": "a white and blue brush"
+      }
+    },
+    {
+      "id": "defect_toothbrush_defective_95f0cf76",
+      "type": "defect",
+      "properties": {
+        "name": "defective",
+        "product": "toothbrush",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_transistor_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\transistor\\test\\bent_lead\\000.png",
+        "product": "transistor",
+        "defect_category": "bent_lead",
+        "caption": "a black and silver electronic device"
+      }
+    },
+    {
+      "id": "defect_transistor_bent_lead_b5dca39a",
+      "type": "defect",
+      "properties": {
+        "name": "bent_lead",
+        "product": "transistor",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_transistor_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\transistor\\test\\bent_lead\\001.png",
+        "product": "transistor",
+        "defect_category": "bent_lead",
+        "caption": "a black electronic device with holes in it"
+      }
+    },
+    {
+      "id": "defect_transistor_hole_46b408c6",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "transistor",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_transistor_cut_lead_6b8a948b",
+      "type": "defect",
+      "properties": {
+        "name": "cut_lead",
+        "product": "transistor",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_transistor_hole_b31840ce",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "transistor",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_transistor_damaged_case_338f28a3",
+      "type": "defect",
+      "properties": {
+        "name": "damaged_case",
+        "product": "transistor",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_transistor_damaged_case_0bf0fa48",
+      "type": "defect",
+      "properties": {
+        "name": "damaged_case",
+        "product": "transistor",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_transistor_misplaced_5c67d206",
+      "type": "defect",
+      "properties": {
+        "name": "misplaced",
+        "product": "transistor",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_transistor_misplaced_71c3438e",
+      "type": "defect",
+      "properties": {
+        "name": "misplaced",
+        "product": "transistor",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_wood_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\wood\\test\\color\\000.png",
+        "product": "wood",
+        "defect_category": "color",
+        "caption": "a close up of a wood surface"
+      }
+    },
+    {
+      "id": "defect_wood_color_dd24ae04",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_wood_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\wood\\test\\color\\001.png",
+        "product": "wood",
+        "defect_category": "color",
+        "caption": "a close up of a wood surface"
+      }
+    },
+    {
+      "id": "defect_wood_color_e82da42e",
+      "type": "defect",
+      "properties": {
+        "name": "color",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_wood_combined_d9c71ca2",
+      "type": "defect",
+      "properties": {
+        "name": "combined",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_wood_hole_fc7c53fa",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_wood_hole_9ad6fa27",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_wood_hole_c6cd188a",
+      "type": "defect",
+      "properties": {
+        "name": "hole",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_wood_liquid_f6d01c41",
+      "type": "defect",
+      "properties": {
+        "name": "liquid",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_wood_liquid_194d4a92",
+      "type": "defect",
+      "properties": {
+        "name": "liquid",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_wood_scratch_12b91b30",
+      "type": "defect",
+      "properties": {
+        "name": "scratch",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_wood_scratch_62d7dff3",
+      "type": "defect",
+      "properties": {
+        "name": "scratch",
+        "product": "wood",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_zipper_000",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\zipper\\test\\broken_teeth\\000.png",
+        "product": "zipper",
+        "defect_category": "broken_teeth",
+        "caption": "a close-up of a zipper"
+      }
+    },
+    {
+      "id": "defect_zipper_broken_teeth_0c889198",
+      "type": "defect",
+      "properties": {
+        "name": "broken_teeth",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "img_zipper_001",
+      "type": "image",
+      "properties": {
+        "path": "C:\\Users\\rishah\\mvtec_anomaly_detection.tar\\mvtec_anomaly_detection\\zipper\\test\\broken_teeth\\001.png",
+        "product": "zipper",
+        "defect_category": "broken_teeth",
+        "caption": "a close-up of a zipper"
+      }
+    },
+    {
+      "id": "defect_zipper_broken_teeth_fb558f4c",
+      "type": "defect",
+      "properties": {
+        "name": "broken_teeth",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_combined_dc409be9",
+      "type": "defect",
+      "properties": {
+        "name": "combined",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_combined_276fcec1",
+      "type": "defect",
+      "properties": {
+        "name": "combined",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_fabric_border_e42a3b99",
+      "type": "defect",
+      "properties": {
+        "name": "fabric_border",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_fabric_border_420149ac",
+      "type": "defect",
+      "properties": {
+        "name": "fabric_border",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_fabric_interior_04c9f4b2",
+      "type": "defect",
+      "properties": {
+        "name": "fabric_interior",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_fabric_interior_d79254fe",
+      "type": "defect",
+      "properties": {
+        "name": "fabric_interior",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_rough_b0d307e7",
+      "type": "defect",
+      "properties": {
+        "name": "rough",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_rough_23b85179",
+      "type": "defect",
+      "properties": {
+        "name": "rough",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_split_teeth_40f58754",
+      "type": "defect",
+      "properties": {
+        "name": "split_teeth",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_split_teeth_102bd2cd",
+      "type": "defect",
+      "properties": {
+        "name": "split_teeth",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_squeezed_teeth_da2ea2b8",
+      "type": "defect",
+      "properties": {
+        "name": "squeezed_teeth",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "defect_zipper_squeezed_teeth_d1b7ba10",
+      "type": "defect",
+      "properties": {
+        "name": "squeezed_teeth",
+        "product": "zipper",
+        "severity": "medium"
+      }
+    },
+    {
+      "id": "eq_microscope",
+      "type": "equipment",
+      "properties": {
+        "name": "High-resolution microscope"
+      }
+    },
+    {
+      "id": "eq_backlight",
+      "type": "equipment",
+      "properties": {
+        "name": "Backlight illumination"
+      }
+    },
+    {
+      "id": "eq_xray",
+      "type": "equipment",
+      "properties": {
+        "name": "X-ray scanner"
+      }
+    },
+    {
+      "id": "eq_camera",
+      "type": "equipment",
+      "properties": {
+        "name": "High-speed camera"
+      }
+    },
+    {
+      "id": "eq_laser",
+      "type": "equipment",
+      "properties": {
+        "name": "3D Laser scanner"
+      }
+    },
+    {
+      "id": "standard_iso9001",
+      "type": "standard",
+      "properties": {
+        "name": "ISO 9001",
+        "section": "8.5 - Production and service provision"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "fromNodeId": "img_bottle_000",
+      "toNodeId": "defect_bottle_broken_large_ce6420be",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_bottle_001",
+      "toNodeId": "defect_bottle_broken_large_16f5be4f",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_bottle_000",
+      "toNodeId": "defect_bottle_broken_small_605fc43e",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_bottle_001",
+      "toNodeId": "defect_bottle_broken_small_2341e0d5",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_bottle_000",
+      "toNodeId": "defect_bottle_contamination_c65cb535",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_bottle_001",
+      "toNodeId": "defect_bottle_contamination_11b43e72",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_000",
+      "toNodeId": "defect_cable_bent_wire_6d85b97f",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_001",
+      "toNodeId": "defect_cable_bent_wire_e97f7159",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_000",
+      "toNodeId": "defect_cable_cable_swap_57ec45d8",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_001",
+      "toNodeId": "defect_cable_cable_swap_0ec1f5f7",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_000",
+      "toNodeId": "defect_cable_combined_0dd4cc21",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_001",
+      "toNodeId": "defect_cable_combined_b4b80696",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_000",
+      "toNodeId": "defect_cable_cut_inner_insulation_e6323697",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_001",
+      "toNodeId": "defect_cable_cut_inner_insulation_0e4e4a7a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_000",
+      "toNodeId": "defect_cable_cut_outer_insulation_46fe99b9",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_001",
+      "toNodeId": "defect_cable_cut_outer_insulation_0d2df879",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_000",
+      "toNodeId": "defect_cable_missing_cable_ee300950",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_001",
+      "toNodeId": "defect_cable_missing_cable_ec18373a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_000",
+      "toNodeId": "defect_cable_missing_wire_593e6204",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_001",
+      "toNodeId": "defect_cable_missing_wire_b703c62f",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_000",
+      "toNodeId": "defect_cable_poke_insulation_89df0ff4",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_cable_001",
+      "toNodeId": "defect_cable_poke_insulation_7ad2d656",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_000",
+      "toNodeId": "defect_capsule_crack_068aa061",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_001",
+      "toNodeId": "defect_capsule_crack_13b3c2ab",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_000",
+      "toNodeId": "defect_capsule_faulty_imprint_44130458",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_001",
+      "toNodeId": "defect_capsule_faulty_imprint_e6e5bd0b",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_000",
+      "toNodeId": "defect_capsule_poke_09450301",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_001",
+      "toNodeId": "defect_capsule_poke_5d9295a5",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_000",
+      "toNodeId": "defect_capsule_scratch_87b0a0c7",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_001",
+      "toNodeId": "defect_capsule_scratch_eb1104d1",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_000",
+      "toNodeId": "defect_capsule_squeeze_b0f4a9d6",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_capsule_001",
+      "toNodeId": "defect_capsule_squeeze_31b19245",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_000",
+      "toNodeId": "defect_carpet_color_f611007f",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_001",
+      "toNodeId": "defect_carpet_color_4838c198",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_000",
+      "toNodeId": "defect_carpet_cut_38cc25d2",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_001",
+      "toNodeId": "defect_carpet_cut_a3102561",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_000",
+      "toNodeId": "defect_carpet_hole_6d9ae71b",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_001",
+      "toNodeId": "defect_carpet_hole_8bc1638b",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_000",
+      "toNodeId": "defect_carpet_metal_contamination_c84f8643",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_001",
+      "toNodeId": "defect_carpet_metal_contamination_e644d444",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_000",
+      "toNodeId": "defect_carpet_thread_15797f77",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_carpet_001",
+      "toNodeId": "defect_carpet_thread_00e548bd",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_000",
+      "toNodeId": "defect_grid_bent_a88a856f",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_001",
+      "toNodeId": "defect_grid_bent_86f9d225",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_000",
+      "toNodeId": "defect_grid_broken_739d2904",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_001",
+      "toNodeId": "defect_grid_broken_446937e9",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_000",
+      "toNodeId": "defect_grid_glue_808b9d17",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_001",
+      "toNodeId": "defect_grid_glue_d67dd75b",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_000",
+      "toNodeId": "defect_grid_metal_contamination_c2d169f6",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_001",
+      "toNodeId": "defect_grid_metal_contamination_06686893",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_000",
+      "toNodeId": "defect_grid_thread_7b440bbb",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_grid_001",
+      "toNodeId": "defect_grid_thread_2db3fe86",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_hazelnut_000",
+      "toNodeId": "defect_hazelnut_crack_f2fef344",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_hazelnut_001",
+      "toNodeId": "defect_hazelnut_crack_93e288b4",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_hazelnut_000",
+      "toNodeId": "defect_hazelnut_cut_88c09c15",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_hazelnut_001",
+      "toNodeId": "defect_hazelnut_cut_cd7c7b7c",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_hazelnut_000",
+      "toNodeId": "defect_hazelnut_hole_1cfaa097",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_hazelnut_001",
+      "toNodeId": "defect_hazelnut_hole_7abc91aa",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_hazelnut_000",
+      "toNodeId": "defect_hazelnut_print_bf5537eb",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_hazelnut_001",
+      "toNodeId": "defect_hazelnut_print_2cd76a24",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_000",
+      "toNodeId": "defect_leather_color_0f4b7504",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_001",
+      "toNodeId": "defect_leather_color_4518ec2e",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_000",
+      "toNodeId": "defect_leather_cut_c5aaf3a1",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_001",
+      "toNodeId": "defect_leather_cut_976c437a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_000",
+      "toNodeId": "defect_leather_fold_d9ae412f",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_001",
+      "toNodeId": "defect_leather_fold_9eaf4305",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_000",
+      "toNodeId": "defect_leather_glue_0fc7a628",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_001",
+      "toNodeId": "defect_leather_glue_d918e63f",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_000",
+      "toNodeId": "defect_leather_poke_6858f5b9",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_leather_001",
+      "toNodeId": "defect_leather_poke_2adce2f2",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_metal_nut_000",
+      "toNodeId": "defect_metal_nut_bent_b155c88c",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_metal_nut_001",
+      "toNodeId": "defect_metal_nut_bent_c900d562",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_metal_nut_000",
+      "toNodeId": "defect_metal_nut_color_61a0b96e",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_metal_nut_001",
+      "toNodeId": "defect_metal_nut_color_c9dce91c",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_metal_nut_000",
+      "toNodeId": "defect_metal_nut_flip_929cac90",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_metal_nut_001",
+      "toNodeId": "defect_metal_nut_flip_a192a2e4",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_metal_nut_000",
+      "toNodeId": "defect_metal_nut_scratch_8ae8673f",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_metal_nut_001",
+      "toNodeId": "defect_metal_nut_scratch_d7654be1",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_000",
+      "toNodeId": "defect_pill_color_1901e635",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_001",
+      "toNodeId": "defect_pill_color_99c5d54a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_000",
+      "toNodeId": "defect_pill_combined_f352a855",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_001",
+      "toNodeId": "defect_pill_combined_53ff280a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_000",
+      "toNodeId": "defect_pill_contamination_98bdba83",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_001",
+      "toNodeId": "defect_pill_contamination_e5b32c78",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_000",
+      "toNodeId": "defect_pill_crack_71ea9566",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_001",
+      "toNodeId": "defect_pill_crack_70c134fa",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_000",
+      "toNodeId": "defect_pill_faulty_imprint_dfc0c597",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_001",
+      "toNodeId": "defect_pill_faulty_imprint_b34d67a3",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_000",
+      "toNodeId": "defect_pill_pill_type_a268cd5d",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_001",
+      "toNodeId": "defect_pill_pill_type_dd0b9634",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_000",
+      "toNodeId": "defect_pill_scratch_e638c3c1",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_pill_001",
+      "toNodeId": "defect_pill_scratch_9768c3f3",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_000",
+      "toNodeId": "defect_screw_manipulated_front_a343390e",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_001",
+      "toNodeId": "defect_screw_manipulated_front_cc4f176b",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_000",
+      "toNodeId": "defect_screw_scratch_head_38865fe4",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_001",
+      "toNodeId": "defect_screw_scratch_head_b17e002c",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_000",
+      "toNodeId": "defect_screw_scratch_neck_1c91d39c",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_001",
+      "toNodeId": "defect_screw_scratch_neck_550660f7",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_000",
+      "toNodeId": "defect_screw_thread_side_a6248f04",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_001",
+      "toNodeId": "defect_screw_thread_side_5796f5a2",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_000",
+      "toNodeId": "defect_screw_thread_top_98fe043a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_screw_001",
+      "toNodeId": "defect_screw_thread_top_a12a6ce3",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_000",
+      "toNodeId": "defect_tile_crack_707589dd",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_001",
+      "toNodeId": "defect_tile_crack_e3e7ee0e",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_000",
+      "toNodeId": "defect_tile_glue_strip_d4bc0b4b",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_001",
+      "toNodeId": "defect_tile_glue_strip_17ab4bbf",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_000",
+      "toNodeId": "defect_tile_gray_stroke_b09bf532",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_001",
+      "toNodeId": "defect_tile_gray_stroke_4043ea66",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_000",
+      "toNodeId": "defect_tile_oil_192bff2c",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_001",
+      "toNodeId": "defect_tile_oil_155523f0",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_000",
+      "toNodeId": "defect_tile_rough_5b53587b",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_tile_001",
+      "toNodeId": "defect_tile_rough_796e9f5a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_toothbrush_000",
+      "toNodeId": "defect_toothbrush_defective_15f9dbca",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_toothbrush_001",
+      "toNodeId": "defect_toothbrush_defective_95f0cf76",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_transistor_000",
+      "toNodeId": "defect_transistor_bent_lead_b5dca39a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_transistor_001",
+      "toNodeId": "defect_transistor_hole_46b408c6",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_transistor_000",
+      "toNodeId": "defect_transistor_cut_lead_6b8a948b",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_transistor_001",
+      "toNodeId": "defect_transistor_hole_b31840ce",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_transistor_000",
+      "toNodeId": "defect_transistor_damaged_case_338f28a3",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_transistor_001",
+      "toNodeId": "defect_transistor_damaged_case_0bf0fa48",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_transistor_000",
+      "toNodeId": "defect_transistor_misplaced_5c67d206",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_transistor_001",
+      "toNodeId": "defect_transistor_misplaced_71c3438e",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_000",
+      "toNodeId": "defect_wood_color_dd24ae04",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_001",
+      "toNodeId": "defect_wood_color_e82da42e",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_000",
+      "toNodeId": "defect_wood_combined_d9c71ca2",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_001",
+      "toNodeId": "defect_wood_hole_fc7c53fa",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_000",
+      "toNodeId": "defect_wood_hole_9ad6fa27",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_001",
+      "toNodeId": "defect_wood_hole_c6cd188a",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_000",
+      "toNodeId": "defect_wood_liquid_f6d01c41",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_001",
+      "toNodeId": "defect_wood_liquid_194d4a92",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_000",
+      "toNodeId": "defect_wood_scratch_12b91b30",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_wood_001",
+      "toNodeId": "defect_wood_scratch_62d7dff3",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_000",
+      "toNodeId": "defect_zipper_broken_teeth_0c889198",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_001",
+      "toNodeId": "defect_zipper_broken_teeth_fb558f4c",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_000",
+      "toNodeId": "defect_zipper_combined_dc409be9",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_001",
+      "toNodeId": "defect_zipper_combined_276fcec1",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_000",
+      "toNodeId": "defect_zipper_fabric_border_e42a3b99",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_001",
+      "toNodeId": "defect_zipper_fabric_border_420149ac",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_000",
+      "toNodeId": "defect_zipper_fabric_interior_04c9f4b2",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_001",
+      "toNodeId": "defect_zipper_fabric_interior_d79254fe",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_000",
+      "toNodeId": "defect_zipper_rough_b0d307e7",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_001",
+      "toNodeId": "defect_zipper_rough_23b85179",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_000",
+      "toNodeId": "defect_zipper_split_teeth_40f58754",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_001",
+      "toNodeId": "defect_zipper_split_teeth_102bd2cd",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_000",
+      "toNodeId": "defect_zipper_squeezed_teeth_da2ea2b8",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "img_zipper_001",
+      "toNodeId": "defect_zipper_squeezed_teeth_d1b7ba10",
+      "relationType": "has_defect",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_bottle_broken_large_ce6420be",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_bottle_broken_large_16f5be4f",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_bottle_broken_small_605fc43e",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_bottle_broken_small_2341e0d5",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_bottle_contamination_c65cb535",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_bottle_contamination_11b43e72",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_cable_bent_wire_6d85b97f",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_cable_bent_wire_e97f7159",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_capsule_crack_068aa061",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_capsule_crack_13b3c2ab",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_capsule_scratch_87b0a0c7",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_capsule_scratch_eb1104d1",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_carpet_color_f611007f",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_carpet_color_4838c198",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_carpet_hole_6d9ae71b",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_carpet_hole_8bc1638b",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_carpet_metal_contamination_c84f8643",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_carpet_metal_contamination_e644d444",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_grid_bent_a88a856f",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_grid_bent_86f9d225",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_grid_broken_739d2904",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_grid_broken_446937e9",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_grid_metal_contamination_c2d169f6",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_grid_metal_contamination_06686893",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_hazelnut_crack_f2fef344",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_hazelnut_crack_93e288b4",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_hazelnut_hole_1cfaa097",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_hazelnut_hole_7abc91aa",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_leather_color_0f4b7504",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_leather_color_4518ec2e",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_metal_nut_bent_b155c88c",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_metal_nut_bent_c900d562",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_metal_nut_color_61a0b96e",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_metal_nut_color_c9dce91c",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_metal_nut_scratch_8ae8673f",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_metal_nut_scratch_d7654be1",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_pill_color_1901e635",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_pill_color_99c5d54a",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_pill_contamination_98bdba83",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_pill_contamination_e5b32c78",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_pill_crack_71ea9566",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_pill_crack_70c134fa",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_pill_scratch_e638c3c1",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_pill_scratch_9768c3f3",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_screw_scratch_head_38865fe4",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_screw_scratch_head_b17e002c",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_screw_scratch_neck_1c91d39c",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_screw_scratch_neck_550660f7",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_tile_crack_707589dd",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_tile_crack_e3e7ee0e",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_transistor_bent_lead_b5dca39a",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_transistor_hole_46b408c6",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_transistor_hole_b31840ce",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_wood_color_dd24ae04",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_wood_color_e82da42e",
+      "toNodeId": "eq_camera",
+      "relationType": "requires_equipment",
+      "confidence": 0.8
+    },
+    {
+      "fromNodeId": "defect_wood_hole_fc7c53fa",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_wood_hole_9ad6fa27",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_wood_hole_c6cd188a",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_wood_scratch_12b91b30",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_wood_scratch_62d7dff3",
+      "toNodeId": "eq_microscope",
+      "relationType": "requires_equipment",
+      "confidence": 0.9
+    },
+    {
+      "fromNodeId": "defect_zipper_broken_teeth_0c889198",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    },
+    {
+      "fromNodeId": "defect_zipper_broken_teeth_fb558f4c",
+      "toNodeId": "eq_backlight",
+      "relationType": "requires_equipment",
+      "confidence": 0.85
+    }
+  ],
+  "saved_at": "2026-02-09T15:48:32.7700451-05:00",
+  "version": "1.0"
+}
