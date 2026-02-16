@@ -4,6 +4,19 @@
 
 A **complete .NET 10 console application** that builds a cross-modal knowledge graph for manufacturing quality control. The system connects visual defect data from Azure AI Vision with process knowledge, inspection equipment, and ISO 9001 standards — then exposes an **interactive 13-option menu** with analytics, console-based visualizations, and exportable dashboards.
 
+## Demo Scope (One repo, expanding demo)
+
+### What works today (implemented)
+**Manufacturing Defects Mode (MVTec AD):**
+- Azure AI Vision Image Analysis (Caption, Tags, Objects)
+- Builds a cross-modal knowledge graph + analytics menu
+
+### What I’m adding next (in progress)
+**Flowcharts & Technical Diagrams Mode:**
+- Add OCR + layout-aware post-processing
+- Goal: extract steps/decisions/entities for search + automation
+- Will live in the same repo as a second demo mode
+
 ### What Makes This Novel?
 
 | Traditional Systems | This System |
