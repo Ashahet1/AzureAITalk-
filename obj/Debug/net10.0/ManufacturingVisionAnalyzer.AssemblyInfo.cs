@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ManufacturingVisionAnalyzer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+155bdd0b38332c6fdb815be2f0447a57c69e9bde")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27549b34d32efcd5f4542b61653d8c424da0bb29")]
 [assembly: System.Reflection.AssemblyProductAttribute("ManufacturingVisionAnalyzer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ManufacturingVisionAnalyzer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

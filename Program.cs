@@ -10,100 +10,100 @@ namespace ManufacturingKnowledgeGraph
     class Program
     {
         private static KnowledgeGraph graph;
-        
+
         static async Task Main(string[] args)
-{
-    PrintBanner();
-
-    // ===== CONFIGURATION =====
-    string azureEndpoint = Environment.GetEnvironmentVariable("VISION_ENDPOINT") 
-        ?? "ENDPOINT";
-    string azureKey = Environment.GetEnvironmentVariable("VISION_KEY") 
-        ?? "AZURE_KEY";
-    
-    string mvtecPath = args.Length > 0 
-        ? args[0] 
-        : GetMVTecPath();
-
-    string cacheFile = "knowledge_graph.json";
-
-    Console.WriteLine($"📍 Azure Endpoint: {azureEndpoint.Substring(0, Math.Min(50, azureEndpoint.Length))}...");
-    Console.WriteLine($"📂 MVTec Path: {mvtecPath}");
-    Console.WriteLine($"💾 Cache File: {cacheFile}\n");
-
-    // ===== CHECK FOR CACHED GRAPH =====
-    if (KnowledgeGraph.CacheExists(cacheFile))
-    {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("✅ Found cached knowledge graph!");
-        Console.ResetColor();
-        Console.WriteLine("\nOptions:");
-        Console.WriteLine("  1. Load from cache (instant) ⚡");
-        Console.WriteLine("  2. Rebuild from scratch (10-15 min) 🔄");
-        Console.WriteLine("  3. Exit");
-        Console.Write("\nSelect option (1-3): ");
-        
-        var choice = Console.ReadLine();
-        
-        if (choice == "1")
         {
-            // Load from cache
-            graph = KnowledgeGraph.LoadFromFile(cacheFile);
-            
-            if (graph == null)
+            PrintBanner();
+
+            // ===== CONFIGURATION =====
+            string azureEndpoint = Environment.GetEnvironmentVariable("VISION_ENDPOINT")
+                ?? "ENDPOINT";
+            string azureKey = Environment.GetEnvironmentVariable("VISION_KEY")
+                ?? "AZURE_KEY";
+
+            string mvtecPath = args.Length > 0
+                ? args[0]
+                : GetMVTecPath();
+
+            string cacheFile = "knowledge_graph.json";
+
+            Console.WriteLine($"📍 Azure Endpoint: {azureEndpoint.Substring(0, Math.Min(50, azureEndpoint.Length))}...");
+            Console.WriteLine($"📂 MVTec Path: {mvtecPath}");
+            Console.WriteLine($"💾 Cache File: {cacheFile}\n");
+
+            // ===== CHECK FOR CACHED GRAPH =====
+            if (KnowledgeGraph.CacheExists(cacheFile))
             {
-                Console.WriteLine("❌ Failed to load cache. Rebuilding...");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("✅ Found cached knowledge graph!");
+                Console.ResetColor();
+                Console.WriteLine("\nOptions:");
+                Console.WriteLine("  1. Load from cache (instant) ⚡");
+                Console.WriteLine("  2. Rebuild from scratch (10-15 min) 🔄");
+                Console.WriteLine("  3. Exit");
+                Console.Write("\nSelect option (1-3): ");
+
+                var choice = Console.ReadLine();
+
+                if (choice == "1")
+                {
+                    // Load from cache
+                    graph = KnowledgeGraph.LoadFromFile(cacheFile);
+
+                    if (graph == null)
+                    {
+                        Console.WriteLine("❌ Failed to load cache. Rebuilding...");
+                        await BuildNewGraph(azureEndpoint, azureKey, mvtecPath, cacheFile);
+                    }
+                }
+                else if (choice == "2")
+                {
+                    // Rebuild
+                    await BuildNewGraph(azureEndpoint, azureKey, mvtecPath, cacheFile);
+                }
+                else
+                {
+                    Console.WriteLine("👋 Goodbye!");
+                    return;
+                }
+            }
+            else
+            {
+                // No cache exists - must build
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("⚠️  No cached graph found. Will build from scratch.");
+                Console.ResetColor();
+                Console.WriteLine("⏳ This takes 10-15 minutes due to API rate limits");
+                Console.Write("\nContinue? (y/n): ");
+
+                if (Console.ReadLine()?.ToLower() != "y")
+                {
+                    Console.WriteLine("Exiting...");
+                    return;
+                }
+
                 await BuildNewGraph(azureEndpoint, azureKey, mvtecPath, cacheFile);
             }
+
+            Console.WriteLine("\n✅ Knowledge graph ready!\n");
+
+            // ===== INTERACTIVE MENU =====
+            await RunInteractiveMenu();
         }
-        else if (choice == "2")
+
+        // New helper method to build graph
+        static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, string cacheFile)
         {
-            // Rebuild
-            await BuildNewGraph(azureEndpoint, azureKey, mvtecPath, cacheFile);
+            graph = new KnowledgeGraph();
+            var analyzer = new AzureVisionAnalyzer(endpoint, key);
+            var builder = new GraphBuilder(graph, analyzer);
+
+            Console.WriteLine("\n🔍 Building knowledge graph...\n");
+            await builder.ProcessMVTecDataset(mvtecPath, maxImagesPerProduct: 2);
+
+            // Save to cache
+            graph.SaveToFile(cacheFile);
         }
-        else
-        {
-            Console.WriteLine("👋 Goodbye!");
-            return;
-        }
-    }
-    else
-    {
-        // No cache exists - must build
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("⚠️  No cached graph found. Will build from scratch.");
-        Console.ResetColor();
-        Console.WriteLine("⏳ This takes 10-15 minutes due to API rate limits");
-        Console.Write("\nContinue? (y/n): ");
-        
-        if (Console.ReadLine()?.ToLower() != "y")
-        {
-            Console.WriteLine("Exiting...");
-            return;
-        }
-
-        await BuildNewGraph(azureEndpoint, azureKey, mvtecPath, cacheFile);
-    }
-
-    Console.WriteLine("\n✅ Knowledge graph ready!\n");
-    
-    // ===== INTERACTIVE MENU =====
-    await RunInteractiveMenu();
-}
-
-// New helper method to build graph
-static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, string cacheFile)
-{
-    graph = new KnowledgeGraph();
-    var analyzer = new AzureVisionAnalyzer(endpoint, key);
-    var builder = new GraphBuilder(graph, analyzer);
-
-    Console.WriteLine("\n🔍 Building knowledge graph...\n");
-    await builder.ProcessMVTecDataset(mvtecPath, maxImagesPerProduct: 2);
-
-    // Save to cache
-    graph.SaveToFile(cacheFile);
-}
 
         static async Task RunInteractiveMenu()
         {
@@ -111,12 +111,12 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
             {
                 Console.Clear();
                 PrintBanner();
-                
+
                 // Show statistics
                 Console.WriteLine("📊 KNOWLEDGE GRAPH STATISTICS");
                 Console.WriteLine(new string('═', 70));
                 graph.PrintGraph();
-                
+
                 Console.WriteLine("\n\n🔍 INTERACTIVE QUERY MENU");
                 Console.WriteLine(new string('═', 70));
                 Console.WriteLine("1. 📦 Find defects by product type");
@@ -126,19 +126,20 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
                 Console.WriteLine("5. 🎯 Custom search by defect type");
                 Console.WriteLine("6. 📊 Generate visual diagram");
                 Console.WriteLine("7. 💾 Export results to file");
-                Console.WriteLine("8. 🔄 Show sample insights");            
+                Console.WriteLine("8. 🔄 Show sample insights");
                 Console.WriteLine("9. 📊 VIEW COMPLETE DASHBOARD WITH VISUALIZATIONS ⭐"); // NEW!
                 Console.WriteLine("10. 💾 Save current graph to cache");  // NEW
                 Console.WriteLine("11. 🔄 Rebuild graph from dataset");   // NEW
-                Console.WriteLine("12. 🗑️  Delete cache file");   
-                Console.WriteLine("13. ❌ Exit");
+                Console.WriteLine("12. 🗑️  Delete cache file");
+                Console.WriteLine("13. 🧭 Flowchart/Diagram Folder Mode");
+                Console.WriteLine("14. ❌ Exit");
                 Console.WriteLine(new string('═', 70));
-                
-                Console.Write("\n👉 Select option (1-13): ");
+
+                Console.Write("\n👉 Select option (1-14): ");
                 var choice = Console.ReadLine();
 
                 Console.WriteLine();
-                
+
                 switch (choice)
                 {
                     case "1":
@@ -164,7 +165,7 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
                         break;
                     case "8":
                         await ShowSampleInsights();
-                        break;                    
+                        break;
                     case "9":
                         await ShowCompleteDashboard();
                         break;
@@ -178,6 +179,9 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
                         await DeleteCache();
                         break;
                     case "13":
+                        await RunFlowchartFolderModeAsync();
+                        break;
+                    case "14":
                         Console.WriteLine("👋 Goodbye!");
                         return;
                     default:
@@ -194,7 +198,7 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
         {
             Console.WriteLine("📦 QUERY: Find Defects by Product Type");
             Console.WriteLine(new string('─', 70));
-            
+
             Console.Write("Enter product name (e.g., bottle, metal_nut, cable): ");
             var productName = Console.ReadLine();
 
@@ -209,12 +213,12 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
             }
 
             Console.WriteLine($"\n✅ Found {defects.Count} defect types for '{productName}':\n");
-            
+
             // Create table
             PrintTable(
                 new[] { "Defect Type", "Severity", "Product" },
-                defects.Select(d => new[] 
-                { 
+                defects.Select(d => new[]
+                {
                     d.Properties["name"].ToString(),
                     d.Properties["severity"].ToString(),
                     d.Properties["product"].ToString()
@@ -242,10 +246,10 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
             var rows = new List<string[]>();
             foreach (var kvp in equipment.Take(15))
             {
-                rows.Add(new[] 
-                { 
-                    kvp.Key, 
-                    string.Join(", ", kvp.Value.Distinct()) 
+                rows.Add(new[]
+                {
+                    kvp.Key,
+                    string.Join(", ", kvp.Value.Distinct())
                 });
             }
 
@@ -279,8 +283,8 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
                 var name1 = defect1.Properties["name"].ToString();
                 var name2 = defect2.Properties["name"].ToString();
 
-                rows.Add(new[] 
-                { 
+                rows.Add(new[]
+                {
                     $"{name1} ({product1})",
                     "↔",
                     $"{name2} ({product2})",
@@ -315,7 +319,7 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
             {
                 var defectCount = graph.QueryDefectsByProduct(product).Count;
                 var imageCount = images.Count(img => img.Properties["product"].ToString() == product);
-                
+
                 rows.Add(new[] { product, imageCount.ToString(), defectCount.ToString() });
             }
 
@@ -328,7 +332,7 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
         {
             Console.WriteLine("🎯 QUERY: Custom Defect Search");
             Console.WriteLine(new string('─', 70));
-            
+
             Console.Write("Enter defect type (e.g., crack, scratch, bent, hole): ");
             var defectType = Console.ReadLine()?.ToLower();
 
@@ -457,7 +461,7 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
             }
 
             File.WriteAllText(filename, sb.ToString());
-            
+
             Console.WriteLine($"\n✅ Results exported to: {filename}");
             Console.WriteLine($"📂 Location: {Path.GetFullPath(filename)}");
 
@@ -500,13 +504,75 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
             await Task.CompletedTask;
         }
 
+        static async Task RunFlowchartFolderModeAsync()
+        {
+            Console.WriteLine("\n🧭 Flowchart/Diagram Folder Mode");
+            Console.WriteLine("Enter folder path (or press Enter for default: ./datasets/flowcharts):");
+            var folder = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(folder))
+                folder = Path.Combine(Environment.CurrentDirectory, "datasets", "flowcharts");
+
+            if (!Directory.Exists(folder))
+            {
+                Console.WriteLine($"❌ Folder not found: {folder}");
+                return;
+            }
+
+            var outputDir = Path.Combine(Environment.CurrentDirectory, "outputs", "flowcharts");
+            Directory.CreateDirectory(outputDir);
+
+            var supported = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        { ".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff" };
+
+            var files = Directory.GetFiles(folder)
+                .Where(f => supported.Contains(Path.GetExtension(f)))
+                .OrderBy(f => f)
+                .ToList();
+
+            if (files.Count == 0)
+            {
+                Console.WriteLine($"⚠️ No images found in: {folder}");
+                return;
+            }
+
+            Console.WriteLine($"Found {files.Count} image(s). Processing...\n");
+
+            int ok = 0, fail = 0;
+            foreach (var file in files)
+            {
+                try
+                {
+                    var result = await FlowchartFolderProcessor.ProcessSingleImageAsync(file);
+
+                    var outPath = Path.Combine(outputDir, Path.GetFileNameWithoutExtension(file) + ".json");
+                    var json = System.Text.Json.JsonSerializer.Serialize(result, new System.Text.Json.JsonSerializerOptions
+                    {
+                        WriteIndented = true
+                    });
+                    await File.WriteAllTextAsync(outPath, json);
+
+                    Console.WriteLine($"✅ {Path.GetFileName(file)} → {Path.GetFileName(outPath)}");
+                    ok++;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"❌ {Path.GetFileName(file)} failed: {ex.Message}");
+                    fail++;
+                }
+            }
+
+            Console.WriteLine($"\nDone. Success: {ok}, Failed: {fail}");
+            Console.WriteLine($"Outputs: {outputDir}");
+        }
+
+
         static void PrintTable(string[] headers, List<string[]> rows)
         {
             // Calculate column widths
             var widths = new int[headers.Length];
             for (int i = 0; i < headers.Length; i++)
             {
-                widths[i] = Math.Max(headers[i].Length, 
+                widths[i] = Math.Max(headers[i].Length,
                     rows.Any() ? rows.Max(r => r[i].Length) : 0) + 2;
             }
 
@@ -577,7 +643,7 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
             var path = Console.ReadLine()?.Trim('"');
             return path ?? "";
         }
-      
+
 
         static async Task ShowCompleteDashboard()
         {
@@ -650,94 +716,94 @@ static async Task BuildNewGraph(string endpoint, string key, string mvtecPath, s
             Console.WriteLine("   • Quality heatmap identifies high-risk products instantly");
             Console.WriteLine(new string('═', 70));
 
-        // At the end of ShowCompleteDashboard(), before await Task.CompletedTask:
+            // At the end of ShowCompleteDashboard(), before await Task.CompletedTask:
 
-        Console.Write("\n💾 Export this dashboard to file? (y/n): ");
-        if (Console.ReadLine()?.ToLower() == "y")
-        {
-            var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            var filename = $"Dashboard_Export_{timestamp}.txt";
-            
-            // Redirect console output to file
-            using (var writer = new StreamWriter(filename))
+            Console.Write("\n💾 Export this dashboard to file? (y/n): ");
+            if (Console.ReadLine()?.ToLower() == "y")
             {
-                var oldOut = Console.Out;
-                Console.SetOut(writer);
-                
-                // Regenerate dashboard for file
-                ChartGenerator.DrawBarChart("DEFECT TYPE DISTRIBUTION", defectFreq);
-                ChartGenerator.DrawPieChart("SEVERITY BREAKDOWN", severityDist);
-                ChartGenerator.DrawBarChart("DEFECTS BY PRODUCT", productDefects);
-                ChartGenerator.DrawBarChart("EQUIPMENT USAGE ANALYSIS", equipmentUsage);
-                
-                Console.SetOut(oldOut);
+                var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                var filename = $"Dashboard_Export_{timestamp}.txt";
+
+                // Redirect console output to file
+                using (var writer = new StreamWriter(filename))
+                {
+                    var oldOut = Console.Out;
+                    Console.SetOut(writer);
+
+                    // Regenerate dashboard for file
+                    ChartGenerator.DrawBarChart("DEFECT TYPE DISTRIBUTION", defectFreq);
+                    ChartGenerator.DrawPieChart("SEVERITY BREAKDOWN", severityDist);
+                    ChartGenerator.DrawBarChart("DEFECTS BY PRODUCT", productDefects);
+                    ChartGenerator.DrawBarChart("EQUIPMENT USAGE ANALYSIS", equipmentUsage);
+
+                    Console.SetOut(oldOut);
+                }
+
+                Console.WriteLine($"✅ Dashboard exported to: {filename}");
             }
-            
-            Console.WriteLine($"✅ Dashboard exported to: {filename}");
-        }
             await Task.CompletedTask;
         }
         static async Task SaveGraphCache()
-{
-    Console.WriteLine("💾 SAVE GRAPH TO CACHE");
-    Console.WriteLine(new string('─', 70));
-    
-    graph.SaveToFile("knowledge_graph.json");
-    Console.WriteLine("✅ Graph saved successfully!");
-    
-    await Task.CompletedTask;
-}
-
-static async Task RebuildGraph()
-{
-    Console.WriteLine("🔄 REBUILD GRAPH FROM DATASET");
-    Console.WriteLine(new string('─', 70));
-    Console.WriteLine("⚠️  This will take 10-15 minutes and overwrite cached data.");
-    Console.Write("Continue? (y/n): ");
-    
-    if (Console.ReadLine()?.ToLower() != "y")
-    {
-        Console.WriteLine("Cancelled.");
-        return;
-    }
-
-    string azureEndpoint = Environment.GetEnvironmentVariable("VISION_ENDPOINT") ?? "YOUR_ENDPOINT_HERE";
-    string azureKey = Environment.GetEnvironmentVariable("VISION_KEY") ?? "YOUR_KEY_HERE";
-    string mvtecPath = "C:\\Users\\rishah\\mvtec_anomaly_detection"; // Update this
-    
-    await BuildNewGraph(azureEndpoint, azureKey, mvtecPath, "knowledge_graph.json");
-    
-    Console.WriteLine("\n✅ Graph rebuilt successfully!");
-    
-    await Task.CompletedTask;
-}
-
-static async Task DeleteCache()
-{
-    Console.WriteLine("🗑️  DELETE CACHE FILE");
-    Console.WriteLine(new string('─', 70));
-    
-    string cacheFile = "knowledge_graph.json";
-    
-    if (File.Exists(cacheFile))
-    {
-        Console.Write("⚠️  Are you sure? This cannot be undone. (y/n): ");
-        if (Console.ReadLine()?.ToLower() == "y")
         {
-            File.Delete(cacheFile);
-            Console.WriteLine("✅ Cache deleted. Run option 12 to rebuild.");
+            Console.WriteLine("💾 SAVE GRAPH TO CACHE");
+            Console.WriteLine(new string('─', 70));
+
+            graph.SaveToFile("knowledge_graph.json");
+            Console.WriteLine("✅ Graph saved successfully!");
+
+            await Task.CompletedTask;
         }
-        else
+
+        static async Task RebuildGraph()
         {
-            Console.WriteLine("Cancelled.");
+            Console.WriteLine("🔄 REBUILD GRAPH FROM DATASET");
+            Console.WriteLine(new string('─', 70));
+            Console.WriteLine("⚠️  This will take 10-15 minutes and overwrite cached data.");
+            Console.Write("Continue? (y/n): ");
+
+            if (Console.ReadLine()?.ToLower() != "y")
+            {
+                Console.WriteLine("Cancelled.");
+                return;
+            }
+
+            string azureEndpoint = Environment.GetEnvironmentVariable("VISION_ENDPOINT") ?? "YOUR_ENDPOINT_HERE";
+            string azureKey = Environment.GetEnvironmentVariable("VISION_KEY") ?? "YOUR_KEY_HERE";
+            string mvtecPath = "C:\\Users\\rishah\\mvtec_anomaly_detection"; // Update this
+
+            await BuildNewGraph(azureEndpoint, azureKey, mvtecPath, "knowledge_graph.json");
+
+            Console.WriteLine("\n✅ Graph rebuilt successfully!");
+
+            await Task.CompletedTask;
         }
-    }
-    else
-    {
-        Console.WriteLine("❌ No cache file found.");
-    }
-    
-    await Task.CompletedTask;
-}
+
+        static async Task DeleteCache()
+        {
+            Console.WriteLine("🗑️  DELETE CACHE FILE");
+            Console.WriteLine(new string('─', 70));
+
+            string cacheFile = "knowledge_graph.json";
+
+            if (File.Exists(cacheFile))
+            {
+                Console.Write("⚠️  Are you sure? This cannot be undone. (y/n): ");
+                if (Console.ReadLine()?.ToLower() == "y")
+                {
+                    File.Delete(cacheFile);
+                    Console.WriteLine("✅ Cache deleted. Run option 12 to rebuild.");
+                }
+                else
+                {
+                    Console.WriteLine("Cancelled.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("❌ No cache file found.");
+            }
+
+            await Task.CompletedTask;
+        }
     }
 }
