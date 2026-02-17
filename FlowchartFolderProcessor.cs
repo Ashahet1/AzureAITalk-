@@ -20,9 +20,10 @@ public static class FlowchartFolderProcessor
 
         // Read credentials exactly like your existing app expects
         // (Same names you used in README and in your defects analyzer)
-        var endpoint = Environment.GetEnvironmentVariable("VISION_ENDPOINT");
-        var key = Environment.GetEnvironmentVariable("VISION_KEY");
-
+        string endpoint = Environment.GetEnvironmentVariable("VISION_ENDPOINT")
+                ?? "VISION_ENDPOINT";
+        string key = Environment.GetEnvironmentVariable("VISION_KEY")
+            ?? "VISION_KEY";
         if (string.IsNullOrWhiteSpace(endpoint) || string.IsNullOrWhiteSpace(key))
             throw new InvalidOperationException("Missing VISION_ENDPOINT or VISION_KEY environment variables.");
 
@@ -34,22 +35,16 @@ public static class FlowchartFolderProcessor
         var imageData = BinaryData.FromStream(stream);
 
         // Ask for: Caption, Tags, Objects, Read (OCR)
-        var options = new ImageAnalysisOptions
-        {
-            Features =
-                ImageAnalysisFeature.Caption |
-                ImageAnalysisFeature.Tags |
-                ImageAnalysisFeature.Objects |
-                ImageAnalysisFeature.Read,
-
-            // Optional: set language if you want; default works for most
-            // Language = "en"
-        };
+        var visualFeatures =
+            VisualFeatures.Caption |
+            VisualFeatures.Tags |
+            VisualFeatures.Objects |
+            VisualFeatures.Read;
 
         ImageAnalysisResult result;
         try
         {
-            result = await client.AnalyzeAsync(imageData, options);
+            result = await client.AnalyzeAsync(imageData, visualFeatures);
         }
         catch (RequestFailedException ex)
         {
@@ -62,8 +57,10 @@ public static class FlowchartFolderProcessor
             ImagePath = imagePath,
             ImageName = Path.GetFileName(imagePath),
             Caption = result.Caption?.Text,
-            Tags = result.Tags?.Select(t => t.Name).Distinct(StringComparer.OrdinalIgnoreCase).ToList() ?? new List<string>(),
-            Objects = result.Objects?.Select(o => o.Name).Distinct(StringComparer.OrdinalIgnoreCase).ToList() ?? new List<string>(),
+            //Tags = result.Tags?.Values.Select(t => t.Name).Distinct(StringComparer.OrdinalIgnoreCase).ToList() ?? new List<string>(),
+            //Objects = result.Objects?.Values?.Where(static o => !string.IsNullOrWhiteSpace(o.Name)).Select(o => o.Name).Distinct(StringComparer.OrdinalIgnoreCase).ToList() ?? new List<string>(),
+            Tags = result.Tags?.Values.Select(t => t.Name).Where(n => !string.IsNullOrWhiteSpace(n)).Distinct(StringComparer.OrdinalIgnoreCase).ToList() ?? new List<string>(),
+            Objects = result.Objects?.Values.Select(o => o.Tags?.FirstOrDefault()?.Name).Where(n => !string.IsNullOrWhiteSpace(n)).Distinct(StringComparer.OrdinalIgnoreCase).ToList() ?? new List<string>(),
             OcrLines = ExtractOcrLines(result),
         };
 
@@ -93,78 +90,106 @@ public static class FlowchartFolderProcessor
     {
         var lines = new List<OcrLine>();
 
-        // OCR lives under result.Read depending on SDK version
-        // We handle both common shapes safely.
         var read = result.Read;
         if (read == null)
             return lines;
 
-        // Some versions expose Blocks -> Lines
-        if (read.Blocks != null)
+        // read.Blocks -> block.Lines -> line.BoundingPolygon (shape varies by SDK)
+        if (read.Blocks == null)
+            return lines;
+
+        foreach (var block in read.Blocks)
         {
-            foreach (var block in read.Blocks)
+            if (block.Lines == null) continue;
+
+            foreach (var line in block.Lines)
             {
-                if (block.Lines == null) continue;
+                var text = line.Text ?? string.Empty;
 
-                foreach (var line in block.Lines)
+                // IMPORTANT: Do NOT type the polygon as PointF or any specific type.
+                // We treat it as object and read X/Y via reflection.
+                var (left, top, width, height) = GetBoundingRect((object?)line.BoundingPolygon);
+
+                lines.Add(new OcrLine
                 {
-                    var text = line.Text ?? "";
-                    var (left, top, width, height) = GetBoundingRect(line.BoundingPolygon);
-
-                    lines.Add(new OcrLine
-                    {
-                        Text = text,
-                        BoundingBoxLeft = left,
-                        BoundingBoxTop = top,
-                        BoundingBoxWidth = width,
-                        BoundingBoxHeight = height
-                    });
-                }
+                    Text = text,
+                    BoundingBoxLeft = left,
+                    BoundingBoxTop = top,
+                    BoundingBoxWidth = width,
+                    BoundingBoxHeight = height
+                });
             }
         }
 
         return lines;
     }
 
-    private static (double left, double top, double width, double height) GetBoundingRect(IReadOnlyList<PointF>? polygon)
+    private static (double left, double top, double width, double height) GetBoundingRect(object? polygonObj)
     {
-        if (polygon == null || polygon.Count == 0)
+        if (polygonObj is not System.Collections.IEnumerable polygon)
             return (0, 0, 0, 0);
 
-        double minX = polygon.Min(p => p.X);
-        double minY = polygon.Min(p => p.Y);
-        double maxX = polygon.Max(p => p.X);
-        double maxY = polygon.Max(p => p.Y);
+        double minX = double.MaxValue, minY = double.MaxValue;
+        double maxX = double.MinValue, maxY = double.MinValue;
+
+        bool any = false;
+
+        foreach (var p in polygon)
+        {
+            if (p == null) continue;
+
+            var t = p.GetType();
+            var xProp = t.GetProperty("X");
+            var yProp = t.GetProperty("Y");
+            if (xProp == null || yProp == null) continue;
+
+            var xVal = xProp.GetValue(p);
+            var yVal = yProp.GetValue(p);
+            if (xVal == null || yVal == null) continue;
+
+            var x = Convert.ToDouble(xVal);
+            var y = Convert.ToDouble(yVal);
+
+            any = true;
+            if (x < minX) minX = x;
+            if (y < minY) minY = y;
+            if (x > maxX) maxX = x;
+            if (y > maxY) maxY = y;
+        }
+
+        if (!any)
+            return (0, 0, 0, 0);
 
         return (minX, minY, maxX - minX, maxY - minY);
     }
-}
 
-// Output model saved as JSON
-public class FlowchartExtractionResult
-{
-    public string ImageName { get; set; } = "";
-    public string ImagePath { get; set; } = "";
 
-    public string? Caption { get; set; }
+    // Output model saved as JSON
+    public class FlowchartExtractionResult
+    {
+        public string ImageName { get; set; } = "";
+        public string ImagePath { get; set; } = "";
 
-    public List<string> Tags { get; set; } = new();
-    public List<string> Objects { get; set; } = new();
+        public string? Caption { get; set; }
 
-    public List<OcrLine> OcrLines { get; set; } = new();
+        public List<string> Tags { get; set; } = new();
+        public List<string> Objects { get; set; } = new();
 
-    // Demo-friendly derived fields
-    public List<string> Steps { get; set; } = new();
-    public List<string> Decisions { get; set; } = new();
-}
+        public List<OcrLine> OcrLines { get; set; } = new();
 
-public class OcrLine
-{
-    public string Text { get; set; } = "";
+        // Demo-friendly derived fields
+        public List<string> Steps { get; set; } = new();
+        public List<string> Decisions { get; set; } = new();
+    }
 
-    // Pixel coordinates in the image space
-    public double BoundingBoxLeft { get; set; }
-    public double BoundingBoxTop { get; set; }
-    public double BoundingBoxWidth { get; set; }
-    public double BoundingBoxHeight { get; set; }
+    public class OcrLine
+    {
+        public string Text { get; set; } = "";
+
+        // Pixel coordinates in the image space
+        public double BoundingBoxLeft { get; set; }
+        public double BoundingBoxTop { get; set; }
+        public double BoundingBoxWidth { get; set; }
+        public double BoundingBoxHeight { get; set; }
+    }
 }

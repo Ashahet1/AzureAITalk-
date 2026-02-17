@@ -17,9 +17,9 @@ namespace ManufacturingKnowledgeGraph
 
             // ===== CONFIGURATION =====
             string azureEndpoint = Environment.GetEnvironmentVariable("VISION_ENDPOINT")
-                ?? "ENDPOINT";
+                ?? "VISION_ENDPOINT";
             string azureKey = Environment.GetEnvironmentVariable("VISION_KEY")
-                ?? "AZURE_KEY";
+                ?? "VISION_KEY";
 
             string mvtecPath = args.Length > 0
                 ? args[0]
@@ -132,7 +132,8 @@ namespace ManufacturingKnowledgeGraph
                 Console.WriteLine("11. 🔄 Rebuild graph from dataset");   // NEW
                 Console.WriteLine("12. 🗑️  Delete cache file");
                 Console.WriteLine("13. 🧭 Flowchart/Diagram Folder Mode");
-                Console.WriteLine("14. ❌ Exit");
+                Console.WriteLine("14. 🔎 Search inside flowcharts (keyword)");
+                Console.WriteLine("15. ❌ Exit");
                 Console.WriteLine(new string('═', 70));
 
                 Console.Write("\n👉 Select option (1-14): ");
@@ -182,6 +183,9 @@ namespace ManufacturingKnowledgeGraph
                         await RunFlowchartFolderModeAsync();
                         break;
                     case "14":
+                        await RunFlowchartKeywordSearch();
+                        break;
+                    case "15":
                         Console.WriteLine("👋 Goodbye!");
                         return;
                     default:
@@ -545,10 +549,14 @@ namespace ManufacturingKnowledgeGraph
                     var result = await FlowchartFolderProcessor.ProcessSingleImageAsync(file);
 
                     var outPath = Path.Combine(outputDir, Path.GetFileNameWithoutExtension(file) + ".json");
-                    var json = System.Text.Json.JsonSerializer.Serialize(result, new System.Text.Json.JsonSerializerOptions
-                    {
-                        WriteIndented = true
-                    });
+                    var json = System.Text.Json.JsonSerializer.Serialize(
+                            result,
+                            new System.Text.Json.JsonSerializerOptions
+                            {
+                                WriteIndented = true,
+                                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                            });
+
                     await File.WriteAllTextAsync(outPath, json);
 
                     Console.WriteLine($"✅ {Path.GetFileName(file)} → {Path.GetFileName(outPath)}");
@@ -565,6 +573,81 @@ namespace ManufacturingKnowledgeGraph
             Console.WriteLine($"Outputs: {outputDir}");
         }
 
+        static async Task RunFlowchartKeywordSearch()
+        {
+            Console.WriteLine("\n🔎 Search inside flowcharts (from outputs/flowcharts JSON)");
+            Console.Write("Enter keyword (e.g., approve, inspection, SOP): ");
+            var keyword = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                Console.WriteLine("⚠️ Keyword is empty.");
+                return;
+            }
+
+            var outputDir = Path.Combine(Environment.CurrentDirectory, "outputs", "flowcharts");
+            if (!Directory.Exists(outputDir))
+            {
+                Console.WriteLine($"❌ Output folder not found: {outputDir}");
+                Console.WriteLine("Run Option 13 (Flowchart mode) first to generate JSON outputs.");
+                return;
+            }
+
+            var jsonFiles = Directory.GetFiles(outputDir, "*.json")
+                .Where(f => !f.EndsWith(".summary.json", StringComparison.OrdinalIgnoreCase)) // in case you add summaries later
+                .OrderBy(f => f)
+                .ToList();
+
+            if (jsonFiles.Count == 0)
+            {
+                Console.WriteLine($"⚠️ No JSON files found in: {outputDir}");
+                return;
+            }
+
+            int matches = 0;
+
+            foreach (var file in jsonFiles)
+            {
+                try
+                {
+                    var json = await File.ReadAllTextAsync(file);
+
+                    // Minimal parse: pull out Steps only
+                    var doc = System.Text.Json.JsonDocument.Parse(json);
+
+                    if (!doc.RootElement.TryGetProperty("Steps", out var stepsElement) ||
+                        stepsElement.ValueKind != System.Text.Json.JsonValueKind.Array)
+                        continue;
+
+                    bool hit = false;
+                    foreach (var s in stepsElement.EnumerateArray())
+                    {
+                        if (s.ValueKind != System.Text.Json.JsonValueKind.String) continue;
+
+                        var stepText = s.GetString() ?? "";
+                        if (stepText.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            hit = true;
+                            break;
+                        }
+                    }
+
+                    if (hit)
+                    {
+                        matches++;
+                        Console.WriteLine($"✅ {Path.GetFileName(file)}");
+                    }
+                }
+                catch
+                {
+                    // ignore bad files; keep the demo smooth
+                }
+            }
+
+            Console.WriteLine(matches == 0
+                ? "No matches found."
+                : $"Total matches: {matches}");
+        }
 
         static void PrintTable(string[] headers, List<string[]> rows)
         {
