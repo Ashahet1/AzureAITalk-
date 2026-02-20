@@ -65,7 +65,6 @@ public static class FlowchartFolderProcessor
         };
 
         // Minimal "steps": sort OCR lines top-to-bottom then left-to-right
-        // (Good enough for a demo; later we can add box/arrow parsing)
         output.Steps = output.OcrLines
             .OrderBy(l => l.BoundingBoxTop)
             .ThenBy(l => l.BoundingBoxLeft)
@@ -75,13 +74,21 @@ public static class FlowchartFolderProcessor
 
         // Minimal "decisions": detect Yes/No or question mark
         output.Decisions = output.Steps
-            .Where(t => t.Contains("?") ||
-                        t.Contains("yes", StringComparison.OrdinalIgnoreCase) ||
-                        t.Contains("no", StringComparison.OrdinalIgnoreCase) ||
-                        t.Contains("approve", StringComparison.OrdinalIgnoreCase) ||
-                        t.Contains("reject", StringComparison.OrdinalIgnoreCase))
-            .Distinct()
-            .ToList();
+        .Where(t => t.Contains("?") ||
+                    t.Contains("yes", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("no", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("approve", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("reject", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("pass", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("fail", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("rework", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("scrap", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("verify", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("check", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("threshold", StringComparison.OrdinalIgnoreCase) ||
+                    t.Contains("meet", StringComparison.OrdinalIgnoreCase))
+        .Distinct()
+        .ToList();
 
         return output;
     }

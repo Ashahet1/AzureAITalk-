@@ -615,20 +615,49 @@ namespace ManufacturingKnowledgeGraph
                     // Minimal parse: pull out Steps only
                     var doc = System.Text.Json.JsonDocument.Parse(json);
 
-                    if (!doc.RootElement.TryGetProperty("Steps", out var stepsElement) ||
-                        stepsElement.ValueKind != System.Text.Json.JsonValueKind.Array)
-                        continue;
-
                     bool hit = false;
-                    foreach (var s in stepsElement.EnumerateArray())
-                    {
-                        if (s.ValueKind != System.Text.Json.JsonValueKind.String) continue;
 
-                        var stepText = s.GetString() ?? "";
-                        if (stepText.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
-                        {
+                    // Search Caption
+                    if (doc.RootElement.TryGetProperty("Caption", out var captionEl))
+                    {
+                        var caption = captionEl.GetString() ?? "";
+                        if (caption.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
                             hit = true;
-                            break;
+                    }
+
+                    // Search Tags
+                    if (!hit && doc.RootElement.TryGetProperty("Tags", out var tagsEl) &&
+                        tagsEl.ValueKind == System.Text.Json.JsonValueKind.Array)
+                    {
+                        foreach (var tag in tagsEl.EnumerateArray())
+                        {
+                            var tagText = tag.GetString() ?? "";
+                            if (tagText.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                            { hit = true; break; }
+                        }
+                    }
+
+                    // Search Steps
+                    if (!hit && doc.RootElement.TryGetProperty("Steps", out var stepsElement) &&
+                        stepsElement.ValueKind == System.Text.Json.JsonValueKind.Array)
+                    {
+                        foreach (var s in stepsElement.EnumerateArray())
+                        {
+                            var stepText = s.GetString() ?? "";
+                            if (stepText.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                            { hit = true; break; }
+                        }
+                    }
+
+                    // Search Decisions
+                    if (!hit && doc.RootElement.TryGetProperty("Decisions", out var decisionsEl) &&
+                        decisionsEl.ValueKind == System.Text.Json.JsonValueKind.Array)
+                    {
+                        foreach (var d in decisionsEl.EnumerateArray())
+                        {
+                            var dText = d.GetString() ?? "";
+                            if (dText.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                            { hit = true; break; }
                         }
                     }
 
@@ -636,6 +665,20 @@ namespace ManufacturingKnowledgeGraph
                     {
                         matches++;
                         Console.WriteLine($"✅ {Path.GetFileName(file)}");
+                        if (doc.RootElement.TryGetProperty("Steps", out var matchSteps) &&
+                            matchSteps.ValueKind == System.Text.Json.JsonValueKind.Array)
+                        {
+                            foreach (var s in matchSteps.EnumerateArray())
+                            {
+                                var stepText = s.GetString() ?? "";
+                                if (stepText.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine($"   → \"{stepText}\"");
+                                    Console.ResetColor();
+                                }
+                            }
+                        }
                     }
                 }
                 catch
