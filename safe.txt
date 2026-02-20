@@ -1,0 +1,2 @@
+ENDPOINT: https://mfg-vision-demo.cognitiveservices.azure.com/
+KEY: 5RyzIui4JOKfJNxYp346f2t5imH8TdOZaDLZ24oJu9FgDEkGWhbJJQQJ99CBACYeBjFXJ3w3AAAFACOGHDKd
